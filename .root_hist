@@ -1,0 +1,446 @@
+.x etaSplitVarCompSignal.C
+.q
+.x allEtaVarCompSignal.C
+.q
+.x allEtaVarCompSignal.C
+.q\
+.x etaSplitScoreCutVarCompSignal.C
+.q
+.x etaSplitScoreCutVarCompSignal.C
+.q
+.x etaSplitScoreCutVarCompSignal.C
+.x etaSplitScoreCutVarCompSignal.C
+.x etaSplitScoreCutVarCompSignal.C
+.q
+.x allEtaScoreCutVarCompSignal.C
+.q
+.x allEtaScoreCutVarCompSignal.C
+.qw
+.x allEtaScoreCutVarCompSignal.C
+.q
+.x allEtaScoreCutVarCompSignal.C
+.q
+.x allEtaVarCompBkg.C
+.q
+TFile *_file0 = TFile::Open("NTuples/diPhotonJets_M95PTM25_HovrE_DPT075_1008.root")
+TBrowser tb
+.q
+.x makeSigBkg.C
+.q
+.x allEtaVarCompBkg.C
+.q
+TFile *_file0 = TFile::Open("../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root")
+TBrowser tb
+.q
+TFile *_file0 = TFile::Open("../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root")
+TBrowser tb
+.q
+.x allEtaVarCompBkg.C
+.q
+.x allEtaScoreCutVarCompBkg.C
+.q
+.x allEtaScoreCutVarCompBkg.C
+.q
+.x allEtaScoreCutVarCompBkg.C
+.q
+.x allEtaVarCompBkg.C
+.q
+.x allEtaScoreCutVarCompSignal.C
+.q
+.x allEtaVarCompSignal.C
+.q
+.x allEtaScoreCutVarCompBkg.C
+.q
+.x allEtaScoreCutVarCompBkg.C
+.q
+.x etaSplitVarCompSignal.C
+.x etaSplitVarCompSignal.C
+.x etaSplitVarCompSignal.C
+.q
+.x etaSplitScoreCutVarCompSignal.C
+.q
+.x etaSplitScoreCutVarCompSignal.C
+.x etaSplitVarCompSignal.C
+.q
+.x etaSplitScoreCutVarCompBkg.C
+.q
+.x etaSplitVarCompBkg.C
+.x allEtaVarCompSignal.C
+.q
+TFile *_file0 = TFile::Open("plots/1201/SignalVariableDistributions_1201_IDMVA.root")
+.ls
+can->Draw()
+c1->Print("plots/1201/SignalVariableDistributions_1201_IDMVA.png")
+can->Save("plots/1201/SignalVariableDistributions_1201_IDMVA.png")
+can->Print("plots/1201/SignalVariableDistributions_1201_IDMVA.png")
+.q
+.x etaSplitVarCompSignal.C
+.q
+.x allEtaVarCompSignal.C
+.q
+.x etaSplitVarCompSignal.C
+.q
+.x etaSplitVarCompBkg.C
+.x etaSplitVarCompBkg.C
+.q
+.x allEtaScoreCutVarCompSignal.C
+.q
+.x allEtaScoreCutVarCompSignal.C
+.x allEtaScoreCutVarCompSignal.C
+.x etaSplitScoreCutVarCompSignal.C
+.q
+.x varCompBkg.C(false)
+.q
+.x varCompBkg.C(false)
+.x varCompBkg.C(false)
+.x varCompBkg.C(false)
+.x varCompSig.C(false)
+.q
+.x varCompSig.C(false)
+.x varCompSig.C(false)
+.q
+.x varCompSig.C(false)
+.q
+.x varCompSig.C(false)
+.q
+.x varCompSig.C(true)
+.q
+.x varCompBkg.C(false)
+.q
+.x varCompBkg.C(false)
+.q
+.x varCompBkg.C(true)
+.q
+.x scoreCutCompSig.C(false)
+.q
+.x scoreCutCompSig.C(true)
+.q
+.x scoreCutCompBkg.C(false)
+.q
+.x scoreCutCompBkg.C(false)
+.q
+.x scoreCutCompBkg.C(true)
+.q
+.x makeSigBkg.C
+.q
+TFile *_file0 = TFile::Open("./NTuples/Diphoton_TMVA_1206.root")
+.ls
+diphotonDumper->cd()
+trees->cd()
+.ls
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.x makeSigBkg.C
+.q
+TFile *_file0 = TFile::Open("NTuples/VBF_TMVA_1206.root")
+diphotonDumoer->cd()
+diphotonDumper->cd()
+trees->cd()
+.ls
+.q
+TFile *_file0 = TFile::Open("NTuples/VBF_TMVA_1206.root")
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+/.q
+.q
+.x makeSigBkg.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.ls
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.1
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.ls
+TBrowser tb
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser rg
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+.x addCuts.C
+.x addCuts.C
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.ls
+TBrowser tb
+.q
+.x addCutsTmp.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser rb
+.q
+.x addCutsTmp.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser rb
+.q
+.x addCutsTmp.C
+.q
+.ls
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.ls
+TBrowser tb
+.ls
+GJets->GetEntries()
+.q
+.x addCutsTmp.C
+.q
+.x addCutsTmp.C
+.x addCutsTmp.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.ls
+TBrowser tb
+TBrowser tb
+TBrowser tgs
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+.ls
+TBrowser tb
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhotonCutsTest.root")
+TBrowser tb
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.q
+.x addCuts.C
+.x addCuts.C
+.x addCuts.C
+.q
+.x create2DweightsGJet.cc
+.q
+.x create2DweightsGJet.cc
+.q
+.x create2DweightsGJet.cc
+.q
+.x add2DweightsGJet.cc
+.q
+.x addCuts.C
+.q
+.x create2DweightsGJet.cc
+.q
+.x add2DweightsGJet.cc
+.q
+.x addCuts.C
+.q
+.x create2DweightsGJet.cc
+.q
+.x add2DweightsGJet.cc
+.q
+.x makeSigBkg.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x makeSigBkg.C
+.q
+.x allEtaRocComp.C
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x allEtaRocComp.C
+.q
+.x varCompBkg.C(false,false)
+.q
+.x varCompBkg.C(false,false)
+.x varCompBkg.C(false,false)
+.q
+.x varCompBkg.C(true,false)
+.q
+.x varCompSig.C(false,false)
+.q
+.x varCompSig.C(true,false)
+.q
+.x scoreCutCompSig.C(false,false)
+.x varCompBkg.C(false,false)
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x findIDMVACut.C(false,true)
+.q
+.x scoreCutCompSig.C(false,false)
+.q
+.x scoreCutCompSig.C(false,true)
+.q
+.x scoreCutCompSig.C(false,true)
+.x scoreCutCompSig.C(false,true)
+.x scoreCutCompBkg.C(false,true)
+.q
+.x scoreCutCompBkg.C(false,true)
+.x scoreCutCompBkg.C(false,true)
+.q
+.x scoreCutCompSig.C(false,false)
+.q
+.x scoreCutCompBkg.C(false,false)
+.q
