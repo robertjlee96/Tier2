@@ -1,104 +1,3 @@
-.x etaSplitVarCompSignal.C
-.q
-.x allEtaVarCompSignal.C
-.q
-.x allEtaVarCompSignal.C
-.q\
-.x etaSplitScoreCutVarCompSignal.C
-.q
-.x etaSplitScoreCutVarCompSignal.C
-.q
-.x etaSplitScoreCutVarCompSignal.C
-.x etaSplitScoreCutVarCompSignal.C
-.x etaSplitScoreCutVarCompSignal.C
-.q
-.x allEtaScoreCutVarCompSignal.C
-.q
-.x allEtaScoreCutVarCompSignal.C
-.qw
-.x allEtaScoreCutVarCompSignal.C
-.q
-.x allEtaScoreCutVarCompSignal.C
-.q
-.x allEtaVarCompBkg.C
-.q
-TFile *_file0 = TFile::Open("NTuples/diPhotonJets_M95PTM25_HovrE_DPT075_1008.root")
-TBrowser tb
-.q
-.x makeSigBkg.C
-.q
-.x allEtaVarCompBkg.C
-.q
-TFile *_file0 = TFile::Open("../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root")
-TBrowser tb
-.q
-TFile *_file0 = TFile::Open("../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root")
-TBrowser tb
-.q
-.x allEtaVarCompBkg.C
-.q
-.x allEtaScoreCutVarCompBkg.C
-.q
-.x allEtaScoreCutVarCompBkg.C
-.q
-.x allEtaScoreCutVarCompBkg.C
-.q
-.x allEtaVarCompBkg.C
-.q
-.x allEtaScoreCutVarCompSignal.C
-.q
-.x allEtaVarCompSignal.C
-.q
-.x allEtaScoreCutVarCompBkg.C
-.q
-.x allEtaScoreCutVarCompBkg.C
-.q
-.x etaSplitVarCompSignal.C
-.x etaSplitVarCompSignal.C
-.x etaSplitVarCompSignal.C
-.q
-.x etaSplitScoreCutVarCompSignal.C
-.q
-.x etaSplitScoreCutVarCompSignal.C
-.x etaSplitVarCompSignal.C
-.q
-.x etaSplitScoreCutVarCompBkg.C
-.q
-.x etaSplitVarCompBkg.C
-.x allEtaVarCompSignal.C
-.q
-TFile *_file0 = TFile::Open("plots/1201/SignalVariableDistributions_1201_IDMVA.root")
-.ls
-can->Draw()
-c1->Print("plots/1201/SignalVariableDistributions_1201_IDMVA.png")
-can->Save("plots/1201/SignalVariableDistributions_1201_IDMVA.png")
-can->Print("plots/1201/SignalVariableDistributions_1201_IDMVA.png")
-.q
-.x etaSplitVarCompSignal.C
-.q
-.x allEtaVarCompSignal.C
-.q
-.x etaSplitVarCompSignal.C
-.q
-.x etaSplitVarCompBkg.C
-.x etaSplitVarCompBkg.C
-.q
-.x allEtaScoreCutVarCompSignal.C
-.q
-.x allEtaScoreCutVarCompSignal.C
-.x allEtaScoreCutVarCompSignal.C
-.x etaSplitScoreCutVarCompSignal.C
-.q
-.x varCompBkg.C(false)
-.q
-.x varCompBkg.C(false)
-.x varCompBkg.C(false)
-.x varCompBkg.C(false)
-.x varCompSig.C(false)
-.q
-.x varCompSig.C(false)
-.x varCompSig.C(false)
-.q
 .x varCompSig.C(false)
 .q
 .x varCompSig.C(false)
@@ -443,4 +342,84 @@ TBrowser tb
 .x scoreCutCompSig.C(false,false)
 .q
 .x scoreCutCompBkg.C(false,false)
+.q
+.x makeSigBkg.C
+.q
+.x makeSigBkg.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C
+.q
+.x allEtaRocComp.C(true)
+.x allEtaRocComp.C
+.q
+TFile *_file0 = TFile::Open("./NTuples/GJets_M95PTM25_HovrE_DPT075_1117.root")
+.ls
+diphotonDumper->cd()
+trees->cd()
+.ls
+GJets->Scan("Event
+.@
+GJets->Scan("event",200)
+GJets->Scan("event",nentries=200)
+GJets->Scan("event","","",200)
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x findDuplicates.C
+.x addCuts.C
+.x findDuplicates.C
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+/q
+.q
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+.q
+.x findDuplicates.C
+TFile *_file0 = TFile::Open("./NTuples/GJets_M95PTM25_HovrE_DPT075_1117.root")
+.ls
+diphotonDumper->cd()
+trees->cd()
+.ld
+.lsd
+.ls
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root")
+.ls
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root")
+.ls
+propmptPhotons->Scan("event:pt","event = 1338675979")
+promptPhotons->Scan("event:pt","event = 1338675979")
+promptPhotons->Scan("event:pt","event==1338675979")
+.q
+.x addCuts.C
+.q
+TFile *_file0 = TFile::Open("NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root")
+promptPhotons->Scan("event:pt","event==1338675979")
+fakePhotons->Scan("event:pt","event==1338675979")
+promptPhotons->Scan("event:pt","event==1338675979")
 .q

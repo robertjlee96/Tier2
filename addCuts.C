@@ -32,6 +32,8 @@
     //ROBERT'S SPLITTING -- Even->Validation   Odd->Training
 
 void addCuts(){
+    
+    cout<<"TEST"<<endl;
     TFile* fileIn = TFile::Open("./NTuples/GJets_M95PTM25_HovrE_DPT075_1117.root");
     TTreeReader myReader("diphotonDumper/trees/GJets",fileIn);
     TTree* treeIn = (TTree*)fileIn->Get("diphotonDumper/trees/GJets");
@@ -84,8 +86,9 @@ void addCuts(){
     TTree* treeOutP = new TTree(treeStrs[0].c_str(),treeStrs[0].c_str());
     TTree* treeOutF = new TTree(treeStrs[1].c_str(),treeStrs[1].c_str());
     
-    Float_t hggMassP,genPtP,genMatchTypeP,ptP,weightP,scRawEP,r9P,sigmaIetaIetaP,etaWidthP,phiWidthP,covIEtaIPhiP,s4P,phoIso03P,chgIsoWrtChosenVtxP,chgIsoWrtWorstVtxP,scEtaP,esEffSigmaRRP,esEnergyOverRawEP,rhoP,hadTowOverEmP,hadronicOverEmP;
+    Float_t hggMassP,eventP,genPtP,genMatchTypeP,ptP,weightP,scRawEP,r9P,sigmaIetaIetaP,etaWidthP,phiWidthP,covIEtaIPhiP,s4P,phoIso03P,chgIsoWrtChosenVtxP,chgIsoWrtWorstVtxP,scEtaP,esEffSigmaRRP,esEnergyOverRawEP,rhoP,hadTowOverEmP,hadronicOverEmP;
     treeOutP->Branch("hggMass",&hggMassP,"hggMass/F");
+    treeOutP->Branch("event",&eventP,"event/F");
     treeOutP->Branch("genPt",&genPtP,"genPt/F");
     treeOutP->Branch("genMatchType",&genMatchTypeP,"genMatchType/F");
     treeOutP->Branch("pt",&ptP,"pt/F");
@@ -108,8 +111,9 @@ void addCuts(){
     treeOutP->Branch("hadronicOverEm",&hadronicOverEmP,"hadronicOverEm/F");
     treeOutP->Branch("rho",&rhoP,"rho/F");
     
-    Float_t hggMassF,genPtF,genMatchTypeF,ptF,weightF,scRawEF,r9F,sigmaIetaIetaF,etaWidthF,phiWidthF,covIEtaIPhiF,s4F,phoIso03F,chgIsoWrtChosenVtxF,chgIsoWrtWorstVtxF,scEtaF,esEffSigmaRRF,esEnergyOverRawEF,rhoF,hadTowOverEmF,hadronicOverEmF;
+    Float_t hggMassF,eventF,genPtF,genMatchTypeF,ptF,weightF,scRawEF,r9F,sigmaIetaIetaF,etaWidthF,phiWidthF,covIEtaIPhiF,s4F,phoIso03F,chgIsoWrtChosenVtxF,chgIsoWrtWorstVtxF,scEtaF,esEffSigmaRRF,esEnergyOverRawEF,rhoF,hadTowOverEmF,hadronicOverEmF;
     treeOutF->Branch("hggMass",&hggMassF,"hggMass/F");
+    treeOutF->Branch("event",&eventF,"event/F");
     treeOutF->Branch("genPt",&genPtF,"genPt/F");
     treeOutF->Branch("genMatchType",&genMatchTypeF,"genMatchType/F");
     treeOutF->Branch("pt",&ptF,"pt/F");
@@ -136,6 +140,7 @@ void addCuts(){
         if(((int)*eventIn)%2 != 0){
             if (*hggMassIn > 95.0 && *leadGenMatchType == 1.0 && *leadPt > 17.0 && *leadPt/(*hggMassIn) > 0.25 && abs(*leadGenPt-*leadPt)/(*leadPt) < 0.075){
                 hggMassP = *hggMassIn;
+                eventP = *eventIn;
                 genMatchTypeP = *leadGenMatchType;
                 genPtP = *leadGenPt;
                 ptP = *leadPt;
@@ -160,6 +165,7 @@ void addCuts(){
             }
             if (*hggMassIn > 95.0 && *subGenMatchType == 1.0 && *subPt > 17.0 && *subPt/(*hggMassIn) > 0.25 && abs(*subGenPt-*subPt)/(*subPt) < 0.075){
                 hggMassP = *hggMassIn;
+                eventP = *eventIn;
                 genMatchTypeP = *subGenMatchType;
                 genPtP = *subGenPt;
                 ptP = *subPt;
@@ -184,6 +190,7 @@ void addCuts(){
             }
             if (*hggMassIn > 95.0 && *leadGenMatchType != 1.0 && *leadPt > 17.0 && *leadPt/(*hggMassIn) > 0.25){
                 hggMassF = *hggMassIn;
+                eventF = *eventIn;
                 genMatchTypeF = *leadGenMatchType;
                 genPtF = *leadGenPt;
                 ptF = *leadPt;
@@ -208,6 +215,7 @@ void addCuts(){
             }
             if (*hggMassIn > 95.0 && *subGenMatchType != 1.0 && *subPt > 17.0 && *subPt/(*hggMassIn) > 0.25){
                 hggMassF = *hggMassIn;
+                eventF = *eventIn;
                 genMatchTypeF = *subGenMatchType;
                 genPtF = *subGenPt;
                 ptF = *subPt;

@@ -684,3 +684,157 @@ python2.7 MoreVarsXMLtrainModelGJet.py
 source sourceMe.sh 
 cd xgbBoost/barrel/
 python2.7 MoreVarsXMLtrainModelGJet.py 
+source sourceMe.sh 
+cd xgbBoost/barrel/
+ls -lthr 
+cd
+screen 
+screen
+screen -r
+screen -r 352131
+screen -r 352892
+screen -r 352131
+screen 
+screen
+screen 0r 
+screen -r
+screen -r 360078
+screen -r
+cd xgbBoost/
+ls -lthr barrel/
+ls -lthr endcap/
+scp {barrel/Model_MD18_LR03_M95PTM25_DPT075_Test25Percent_Pt18_UL2017_1213.xml,barrel/Model_MD18_LR03_M95PTM25_DPT075_Test10Percent_Pt18_UL2017_1213.xml,endcap/Model_MD18_LR03_M95PTM25_DPT075_Test10Percent_Pt18_UL2017_1213_Endcap.xml,endcap/Model_MD18_LR03_M95PTM25_DPT075_Test25Percent_Pt18_UL2017_1213_Endcap.xml} rlee@lxplus.cern.ch:/eos/user/r/rlee/models
+cd ../
+ls -lthr
+git init -b main
+git init main
+git add . && git commit -m "initial commit"
+git add .
+git init main 
+git add .
+git add . 
+git init
+git add . && git commit -m "initial commit"
+git status
+git add . --':(exclude)*.xml' --'(exclude)*.root'
+git add --. --:add . --':(exclude)*.xml' --'(exclude)*.root'.xml --:add . --':(exclude)*.xml' --'(exclude)*.root'.root
+git add -- . --':(exclude)*.xml' --'(exclude)*.root'.xml --:add . --':(exclude)*.xml' --'(exclude)*.root'.root
+git init
+git add -- . --':(exclude)*.xml' --'(exclude)*.root'.xml --:add . --':(exclude)*.xml' --'(exclude)*.root'.root
+rm -rf .git/
+ls -lthr .git/objects/pack/
+rm -rf .git/
+git init 
+
+git add -- . --':(exclude)*.xml' --'(exclude)*.root'
+rm -rf .git/
+git init 
+git add -- . --':(exclude)*.xml' --'(exclude)*.root'
+git add -- . --':!xgboost/*/*.xml' --':!NTuples/*.root'
+gitignore
+git rm --cached
+git status
+cat .git/info/exclude 
+git add -u .
+git add .
+rm -rf .git/
+git init 
+git add .
+git commit -m "First commit"
+git remote add origin git@github.com:robertjlee96/Tier2.git
+git remote -v
+git push -u origin main 
+git push -u origin 
+git push -u origin master
+git status
+pbcopy
+ls -lthr ~/.ssh/
+ls -lthr ~/.ssh/authorized_keys 
+ls -lthr ~/.ssh/
+ssh-keygen -t ed25519 -C "robertjlee96@gmail.com"
+cat /home/users/rlee/.ssh/id_ed25519
+cat /home/users/rlee/.ssh/id_ed25519.pub 
+git push -u origin master
+git remote add origin git@github.com:robertjlee96/Tier2.git
+rm -rf ./git
+rm -rf .git/
+git init 
+open .git/info/exclude 
+cat .git/info/exclude 
+git add .
+git remote add origin git@github.com:robertjlee96/Tier2.git
+git push -u origin master
+git push -u origin 
+git commit -m "First commit"
+git push -u origin master
+touch TEST.txt
+git add TEST.txt 
+git commit -m "Test commit"
+git push -u origin master
+git commit -m "Test Modify"
+git add TEST.txt 
+git commit -m "Test Modify"
+git push -u origin master
+git rm TEST.txt 
+ls -lthr
+ls -lthr main/
+rm -rf main/
+source s
+source sourceMe.sh 
+root -l makeSigBkg.C 
+source sourceMe.sh 
+cd xgbBoost/barrel/
+python2.7 MoreVarsXMLtrainModelGJet.py 
+source sourceMe.sh 
+ls -lthr NTuples/
+scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/{GGH_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root,GGH_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root,GJet_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root,GJet_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root} ./NTuples/
+scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/{GGH_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root,GJet_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root} ./NTuples/
+root -l makeSigBkg.C 
+ls -lthr NTuples/
+cd rocComps/
+root -l allEtaRocComp.C 
+root -l 'allEtaRocComp.C(true)' allEtaRocComp.C 
+cd
+screen
+touch modelHeadComp.txtr
+mv modelHeadComp.txtr modelHeadComp.txt
+emacs modelHeadComp.txt 
+ls -lthr xgbBoost/barrel/
+grep "xgboost2TMVA" xgbBoost/barrel/
+grep "xgboost2TMVA" xgbBoost/barrel/*
+grep "xgboost2TMVA" xgbBoost/barrel/*.py
+source sourceMe.sh 
+ls -lthr 
+ls -lthr rocComps/curves/
+source sourceMe.sh 
+cd reallyOldStuff/
+ls -lthr
+ls -lthr xgbNTupleProduction/
+ls -lthr 
+ls -lthr NTuples
+source sourceMe.sh 
+ls -lthr 
+cp addCuts.C findDuplicates.C
+root -l ./NTuples/GJets_M95PTM25_HovrE_DPT075_1117.root
+root -l findDuplicates.C 
+.ls
+ls -lthr
+source sourceMe.sh 
+root -l findDuplicates.C 
+ls -lthr 
+chmod 777 findDuplicates.C
+root -l findDuplicates.C 
+source sourceMe.sh 
+root -l findDuplicates.C 
+root -l addCuts.C 
+root -l findDuplicates.C 
+.q
+root -l findDuplicates.C 
+root -l ./NTuples/GJets_M95PTM25_HovrE_DPT075_1117.root
+ls -lthr NTuples/s
+ls -lthr NTuples/
+root -l NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root
+root -l addCuts.C
+root -l NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root
+root -l addCuts.C
+root -l NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root

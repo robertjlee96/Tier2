@@ -33,8 +33,8 @@ void makeSigBkg(){
     string fNameSig;
     string fNameBkg;
   
-    fNameSig= "./NTuples/GGH_M95PTM25_DPT075_HovrE_Test25Percent_1213.root";
-    fNameBkg= "./NTuples/GJet_M95PTM25_DPT075_HovrE_Test25Percent_1213.root";
+    fNameSig= "./NTuples/GGH_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root";
+    fNameBkg= "./NTuples/GJet_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root";
     TFile *inFileSig = new TFile(fNameSig.c_str());
     TFile *inFileBkg = new TFile(fNameBkg.c_str());
     
@@ -44,7 +44,7 @@ void makeSigBkg(){
 //    TTree *sigPhotons = (TTree*)inFileSig->Get("diphotonDumper/trees/glugluH_HH_2B2G");
     TTree *bkgPhotons = (TTree*)inFileBkg->Get("diphotonDumper/trees/GJets");
 
-    TFile *outFile = new TFile("NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_1213.root","RECREATE");
+    TFile *outFile = new TFile("NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root","RECREATE");
     TTree *sigPhotonsOut = sigPhotons->CloneTree(0);
 //    sigPhotonsOut->SetName("dihiggs_125");
 //    sigPhotonsOut->SetName("tth_125");

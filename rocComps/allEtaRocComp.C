@@ -24,7 +24,7 @@
 #include <string>
 #include <algorithm>
 
-void allEtaRocComp(){
+void allEtaRocComp(bool diphotonCuts){
     gROOT->Reset();
     gStyle->SetPalette(1);
     gROOT->SetStyle("Plain");
@@ -35,20 +35,23 @@ void allEtaRocComp(){
     int nFiles = 4;
     
     fileNames[0] = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
-    fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_RetrainAgain_1210.root";
-    fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test10Percent_1213.root";
-    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_1213.root";
+    fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_1213.root";
+    fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root";
+    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root";
     
     string sigStr = "ggh_125";
     string bkgStr = "GJets";
     
     string genLabels[10];
-    genLabels[0] = " || TRAIN:M95, PTM25, DPT075 , H/E ";
-    genLabels[1] = " || TRAIN:M95, PTM25, DPT075 , H/E, Retrain 99% Test";
-    genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E Retrain 90% Test";
-    genLabels[3] = " || TRAIN:M95, PTM25, DPT075 , H/E Retrain 75% Test";
+    genLabels[0] = " || TRAIN:M95, PTM25, DPT075 , H/E, Old Best";
+    genLabels[1] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>17";
+    genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>18";
+    genLabels[3] = " || TRAIN:M95, PTM25, DPT075 , H/E, 90% Train, pt>18";
     
-    string mvaOut = "curves/AllEta_TestSplitComp_GGH_1214";
+    string mvaOut = "curves/AllEta_TestSplitComp_GGH_1217";
+    if(diphotonCuts == true) mvaOut += "_Diphoton";
+    if(diphotonCuts == false) mvaOut += "_SinglePhoton";
+    
     string rocOut = mvaOut + "_ROC";
    
     TCanvas * can_RoC = new TCanvas ("can_RoC","can_RoC",10,10,1600,900);
@@ -67,18 +70,33 @@ void allEtaRocComp(){
     string preselLead = " && leadR9 > 0.5 && leadHadronicOverEm < 0.08 && !(abs(leadScEta) < 1.5 && leadR9 < 0.85 && (leadSigmaIetaIeta > 0.015 || leadPfPhoIso03 > 4.0 || leadTrkSumPtHollowConeDR03 > 6.0)) && !(abs(leadScEta) > 1.5 && leadR9 < 0.9 && (leadSigmaIetaIeta > 0.035 || leadPfPhoIso03 > 4.0 || leadTrkSumPtHollowConeDR03 > 6.0))";
     string preselSub =  " && subR9 > 0.5 && subHadronicOverEm < 0.08 && !(abs(subScEta) < 1.5 && subR9 < 0.85 && (subSigmaIetaIeta > 0.015 || subPfPhoIso03 > 4.0 || subTrkSumPtHollowConeDR03 > 6.0)) && !(abs(subScEta) > 1.5 && subR9 < 0.9 && (subSigmaIetaIeta > 0.035 || subPfPhoIso03 > 4.0 || subTrkSumPtHollowConeDR03 > 6.0))";
         
-    string cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-    string cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+    string cutStringLeadSigLoose,cutStringSubSigLoose,cutStringLeadBkgLoose,cutStringSubBkgLoose,cutStringLeadSigTight,cutStringSubSigTight,cutStringLeadBkgTight,cutStringSubBkgTight;
+    if(diphotonCuts == true){
+        cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + kinCutSubLoose + kinCutLeadLoose + ")*weight";
 
-    string cutStringLeadBkgLoose = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-    string cutStringSubBkgLoose = "(subGenMatchType != 1" + massCutBkg + kinCutSubLoose + kinCutLeadLoose + ")*weight";
-
-    string cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
-    string cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
-    
-    string cutStringLeadBkgTight = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
-    string cutStringSubBkgTight = "(subGenMatchType != 1" + massCutBkg + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
-
+        cutStringLeadBkgLoose = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        cutStringSubBkgLoose = "(subGenMatchType != 1" + massCutBkg + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+        
+        cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+        
+        cutStringLeadBkgTight = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        cutStringSubBkgTight = "(subGenMatchType != 1" + massCutBkg + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+    }
+    if(diphotonCuts == false){
+        cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + kinCutLeadLoose + ")*weight";
+        cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + kinCutSubLoose + ")*weight";
+        
+        cutStringLeadBkgLoose = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadLoose + ")*weight";
+        cutStringSubBkgLoose = "(subGenMatchType != 1" + massCutBkg + kinCutSubLoose + ")*weight";
+        
+        cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + kinCutLeadTight + preselLead + ")*weight";
+        cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + kinCutSubTight + preselSub + ")*weight";
+        
+        cutStringLeadBkgTight = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadTight + preselLead + ")*weight";
+        cutStringSubBkgTight = "(subGenMatchType != 1" + massCutBkg + kinCutSubTight + preselSub + ")*weight";
+    }
     
     int nCuts = 320*100; //For development, faster but still pretty close to final (Change in 5th decimal place)
     for(int i = 0; i < nFiles; i++){
@@ -196,9 +214,13 @@ void allEtaRocComp(){
         
         can_RoC->SetGrid();
 
+        string titleString = "GluGluH RoC Curves For All Eta";
+        if(diphotonCuts == true) titleString += "W/ Diphoton Cuts";
+        if(diphotonCuts == false) titleString += "W/ Single Photon Cuts";
+        
         if(i == 0){
             sigEff_vs_bkgEff_Loose->Draw("AC");
-            sigEff_vs_bkgEff_Loose->SetTitle("GluGluH RoC Curves For All Eta W/ Diphoton Cuts");
+            sigEff_vs_bkgEff_Loose->SetTitle(titleString.c_str());
         }
         else sigEff_vs_bkgEff_Loose->Draw("sameC");
         sigEff_vs_bkgEff_Tight->Draw("sameC");

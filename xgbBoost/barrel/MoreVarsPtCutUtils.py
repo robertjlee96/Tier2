@@ -74,7 +74,7 @@ def load_file(input_file, geoSelection = None, ptCuts = None):
             mask = []
             for i in range(0,len(geoMask)):
                 if geoMask[i] == True and ptMask[i] == True:
-                    mask.append(True)
+                    mask.append(True) 
                 else:
                     mask.append(False)
 
