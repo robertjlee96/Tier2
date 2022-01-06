@@ -60,7 +60,7 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
     string bbhLabelIDMVA = "500*HHTo2B2G W/ idMVA > -0.99";
     
     
-    string dirStr ="plots/1215/";
+    string dirStr ="plots/0104/Sig/";
     
     
     int nEta;
@@ -101,7 +101,7 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
     
     if(etaSplit == true) dirStr += "EtaSplit/";
     
-    string outNameGen = dirStr + "Signal_idMVACut";
+    string outNameGen = dirStr + "GGH_idMVACut";
     if(diphotonCuts == true)outNameGen += "_DiphotonCuts";
     if(diphotonCuts == false)outNameGen += "_SinglePhotonCuts";
     
@@ -129,13 +129,13 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
 
             cutStringLeadTightGen = "(leadGenMatchType == 1" + massCutSig + etaCuts[e] + kinCutLeadTight + preselLead + kinCutSubTight + preselSub + ")*weight";
             cutStringSubTightGen = "(subGenMatchType == 1" + massCutSig + etaCuts[e] + kinCutSubTight + preselSub + kinCutLeadTight + preselLead + ")*weight";
-            
+
             cutStringLeadIDMVAGen = "(leadGenMatchType == 1" + massCutSig + etaCuts[e] + kinCutLeadLoose + kinCutSubLoose + idMVACutLead + idMVACutSub +")*weight";
             cutStringSubIDMVAGen = "(subGenMatchType == 1" + massCutSig + etaCuts[e] + kinCutSubLoose + kinCutLeadLoose + idMVACutSub + idMVACutLead + ")*weight";
-            
+
             cutStringLeadLooseMass = "(leadGenMatchType == 1" + massCutLoose + etaCuts[e] + kinCutLeadLoose + kinCutSubLoose + ")*weight";
             cutStringSubLooseMass = "(subGenMatchType == 1" + massCutLoose + etaCuts[e] + kinCutSubLoose + kinCutLeadLoose + ")*weight";
-            
+
             cutStringLeadTightMass = "(leadGenMatchType == 1" + massCutLoose + etaCuts[e] + kinCutLeadTight + preselLead + kinCutSubTight + preselSub + ")*weight";
             cutStringSubTightMass = "(subGenMatchType == 1" + massCutLoose + etaCuts[e] + kinCutSubTight + preselSub + kinCutLeadTight + preselLead + ")*weight";
 
@@ -162,17 +162,18 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
             cutStringSubIDMVAMass = "(subGenMatchType == 1" + massCutLoose + etaCuts[e] + kinCutSubLoose + idMVACutSub + ")*weight";
         }
         
-        int nVars = 5;
-        string varNames[5] = {"Pt","Pt/hggMass","hggMass","SigmaIetaIeta","IDMVA"};
-        double limsLow[5] = {0.0,0.0,80.0,0.0,-1.1};
-        double limsHigh[5] = {200,1.3,180,0.1,1.1};
-        int nBins[5] = {400,520,400,400,440};
+        int nVars = 20;
+        string varNames[20] = {"Pt","Pt/hggMass","hggMass","SigmaIetaIeta","IDMVA","SCRawE","R9","EtaWidth","PhiWidth","CovIEtaIPhi","S4","PhoIso03","ChgIsoWrtChosenVtx","ChgIsoWrtWorstVtx","ScEta","rho","HadTowOverEm","HadronicOverEm","EsEffSigmaRR","EsEnergyOverRawE"};
+        double limsLow[20] = {0.0,0.0,80.0,0.0,-1.1,0.0,0.0,0.0,0.0,-0.002,0.0,0.0,0.0,0.0,-5.0,0.0,0.0,0.0,0.0,0.0};
+        double limsHigh[20] = {200,1.3,180,0.1,1.1,650,1.1,0.2,0.2,0.002,1.0,25.0,25.0,25.0,5.0,60.0,0.4,1.0,8.0,0.2};
+        int nBins[20] = {400,520,400,400,440,650,440,400,400,400,400,500,500,500,400,600,400,400,400,400};
         
         int nEventsLoose, nEventsTight;
         
         TCanvas *can = new TCanvas ("can","can",10,10,1600,900);
         
-        for(int i = 0; i < nVars; i++){
+        //for(int i = 0; i < nVars; i++){
+        for(int i = 2; i < 3; i++){
             TLegend *legend;
             if (varNames[i] == "IDMVA") legend = new TLegend(0.35,0.6,0.65,0.9,"","brNDC");
             else legend = new TLegend(0.6,0.6,0.9,0.9,"","brNDC");
@@ -202,6 +203,16 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
                 cutStringSubIDMVA = cutStringSubIDMVAMass;
                 
             }
+            else if(varNames[i] == "rho"){
+                leadVarStr = varNames[i];
+                subVarStr = varNames[i];
+                cutStringLeadLoose = cutStringLeadLooseGen;
+                cutStringSubLoose = cutStringSubLooseGen;
+                cutStringLeadTight = cutStringLeadTightGen;
+                cutStringSubTight = cutStringSubTightGen;
+                cutStringLeadIDMVA = cutStringLeadIDMVAGen;
+                cutStringSubIDMVA = cutStringSubIDMVAGen;
+            }
             else{
                 cutStringLeadLoose = cutStringLeadLooseGen;
                 cutStringSubLoose = cutStringSubLooseGen;
@@ -224,7 +235,8 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
             string hNamesTightSub[4] = {"hTightSub1","hTightSub2","hTightSub3","hTightSub4"};
             string hNamesIDMVA[4] = {"hIDMVA1","hIDMVA2","hIDMVA3","hIDMVA4"};
             string hNamesIDMVASub[4] = {"hIDMVASub1","hIDMVASub2","hIDMVASub3","hIDMVASub4"};
-            for(int j = 0; j < nTrees; j++){
+            //for(int j = 0; j < nTrees; j++){
+            for(int j = 0; j < 1; j++){
                 string cutStringLeadLooseInside = cutStringLeadLoose;
                 string cutStringLeadTightInside = cutStringLeadTight;
                 string cutStringLeadIDMVAInside = cutStringLeadIDMVA;
@@ -332,7 +344,7 @@ void scoreCutCompSig(bool etaSplit,bool diphotonCuts){
             hStack->Draw("nostackhist");
             legend->Draw("same");
             can->SetGrid();
-            if (varNames[i] == "IDMVA") can->SetLogy(1);
+            if (varNames[i] == "IDMVA" || varNames[i] == "ChgIsoWrtChosenVtx" || varNames[i] == "HadTowOverEm" || varNames[i] == "HadronicOverEm" || varNames[i] == "EsEffSigmaRR" || varNames[i] == "EsEnergyOverRawE") can->SetLogy(1);
             else can->SetLogy(0);
             
             string outName;

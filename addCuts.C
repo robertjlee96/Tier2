@@ -81,10 +81,13 @@ void addCuts(){
     
     TFile* fileOut = TFile::Open("NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training.root","RECREATE");
     
+    string treeNames[4] = {"PromptLead","PromptSub","FakeLead","FakeSub"};
     string treeStrs[2] = {"promptPhotons","fakePhotons"};
     
-    TTree* treeOutP = new TTree(treeStrs[0].c_str(),treeStrs[0].c_str());
-    TTree* treeOutF = new TTree(treeStrs[1].c_str(),treeStrs[1].c_str());
+    TTree* treeOutP1 = new TTree(treeStrs[0].c_str(),treeStrs[0].c_str());
+    TTree* treeOutP2 = new TTree(treeStrs[1].c_str(),treeStrs[0].c_str());
+    TTree* treeOutF1 = new TTree(treeStrs[2].c_str(),treeStrs[1].c_str());
+    TTree* treeOutF2 = new TTree(treeStrs[3].c_str(),treeStrs[1].c_str());
     
     Float_t hggMassP,eventP,genPtP,genMatchTypeP,ptP,weightP,scRawEP,r9P,sigmaIetaIetaP,etaWidthP,phiWidthP,covIEtaIPhiP,s4P,phoIso03P,chgIsoWrtChosenVtxP,chgIsoWrtWorstVtxP,scEtaP,esEffSigmaRRP,esEnergyOverRawEP,rhoP,hadTowOverEmP,hadronicOverEmP;
     treeOutP->Branch("hggMass",&hggMassP,"hggMass/F");

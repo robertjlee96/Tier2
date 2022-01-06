@@ -36,7 +36,7 @@ np.random.seed(1337)
 
 nEst = 1500
 #fin = uproot.open("/home/users/rlee/NTuples/GJet_SACuts_20LowMass_2XReweight_Train_1027_Proc.root")
-fin = uproot.open("../../NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1208_Training_Proc.root")
+fin = uproot.open("../../NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1223_OnlyPromptFakePairs_Train_Proc.root")
 #fin = uproot.open("/home/users/rlee/NTuples/GJet_PTCuts_NoLowMass_HighMassCut_Train_Proc.root")
 #fin = uproot.open("./out_singlephoton_ntuple_SAPresel_Mgg95_12062019_wHOE_Train.root")
 #fin = uproot.open("/Users/robert/Code/T2/xgBoost/xgBoostTrainingSets/out_singlephoton_ntuple_SAPresel_Mgg95_12062019_wHOE_Train.root")
@@ -115,7 +115,7 @@ model.fit(X_train, y_train, sample_weight = w_train, eval_metric=["auc", "loglos
 #tmva_utils.convert_model(model.get_booster().get_dump(),input_variables =[('f0','F'),('f1','F'),('f2','F'),('f3','F'),('f4','F'),('f5','F'),('f6','F'),('f7','F'),('f8','F'),('f9','F'),('f10','F'),('f11','F')],output_xml='gJetModelConversion1208Nest10.xml')
 #tmva_utils.convert_model(model.get_booster().get_dump(),input_variables =[('SCRawE','F'),('r9','F'),('sigmaIetaIeta','F'),('etaWidth','F'),('phiWidth','F'),('covIEtaIPhi','F'),('s4','F'),('phoIso03','F'),('chgIsoWrtChosenVtx','F'),('chgIsoWrtWorstVtx','F'),('scEta','F'),('rho','F')],output_xml='gJetModelConversion1221Nest10.xml')
 #model_fname = "Model_1027_MD18_GJets_SACuts_20LowMass2XReweight.model"
-model_name = "Model_MD18_LR03_M95PTM25_DPT075_T25PT18_UL2017_1217"
+model_name = "Model_MD18_LR03_M95PTM25_DPT075_T25PT18_OnlyPFPairs_UL2017_1223"
 model_fname = model_name + ".model"
 model_xmlName = model_name + ".xml"
 

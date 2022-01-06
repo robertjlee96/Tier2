@@ -24,7 +24,7 @@
 #include <string>
 #include <algorithm>
 
-void allEtaRocComp(bool diphotonCuts){
+void allEtaRocComp(bool diphotonCuts, string etaRegion){
     gROOT->Reset();
     gStyle->SetPalette(1);
     gROOT->SetStyle("Plain");
@@ -37,18 +37,19 @@ void allEtaRocComp(bool diphotonCuts){
     fileNames[0] = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
     fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_1213.root";
     fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root";
-    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test10Percent_Pt18_1216.root";
+    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
     
-    string sigStr = "ggh_125";
+    //string sigStr = "ggh_125";
+    string sigStr = "GJets";
     string bkgStr = "GJets";
     
     string genLabels[10];
     genLabels[0] = " || TRAIN:M95, PTM25, DPT075 , H/E, Old Best";
     genLabels[1] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>17";
     genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>18";
-    genLabels[3] = " || TRAIN:M95, PTM25, DPT075 , H/E, 90% Train, pt>18";
+    genLabels[3] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, Only 1 Prompt 1 Fake";
     
-    string mvaOut = "curves/AllEta_TestSplitComp_GGH_1217";
+    string mvaOut = "curves/"+ etaRegion + "Photons_HighWeightAll_OnlyPF_GJet_0106";
     if(diphotonCuts == true) mvaOut += "_Diphoton";
     if(diphotonCuts == false) mvaOut += "_SinglePhoton";
     
@@ -57,9 +58,33 @@ void allEtaRocComp(bool diphotonCuts){
     TCanvas * can_RoC = new TCanvas ("can_RoC","can_RoC",10,10,1600,900);
     
     TLegend *legend_RoC = new TLegend(0.3,0.1,0.9,0.65,"","brNDC");
+    
+    string etaCutLead;
+    string etaCutSub;
+    string etaRegionStr;
 
-    string massCutSig = " && hggMass > 121 && hggMass < 129";
-    string massCutBkg = " && hggMass > 95";
+    if (etaRegion == "Barrel" || etaRegion == "barrel") {
+        etaCutLead = " && abs(leadScEta) < 1.4442";
+        etaCutSub = " && abs(subScEta) < 1.4442";
+        etaRegionStr = "Barrel";
+    }
+    else if(etaRegion == "Endcap" || etaRegion == "endcap"){
+        etaCutLead = " && abs(leadScEta) > 1.556";
+        etaCutSub = " && abs(subScEta) > 1.556";
+        etaRegionStr = "Endcap";
+    }
+    else{
+        etaCutLead = "";
+        etaCutSub = "";
+        etaRegionStr = "All";
+        cout<<"Plotting for all scEta -- Unrecognized string (use 'Barrel' or 'Endcap')"<<endl;
+    }
+    string weightCut = "&& weight > 2.0";
+    string weightCutStr = " Weight > 2.0";
+    
+    //string massCutSig = " && hggMass > 121 && hggMass < 129";
+    string massCutSig = " && hggMass > 95 " + weightCut;
+    string massCutBkg = " && hggMass > 95 " + weightCut;
     
     string kinCutLeadLoose = " && leadPt > 17 && leadPt/hggMass > 0.15";
     string kinCutSubLoose = " && subPt > 17 && subPt/hggMass > 0.15";
@@ -72,30 +97,40 @@ void allEtaRocComp(bool diphotonCuts){
         
     string cutStringLeadSigLoose,cutStringSubSigLoose,cutStringLeadBkgLoose,cutStringSubBkgLoose,cutStringLeadSigTight,cutStringSubSigTight,cutStringLeadBkgTight,cutStringSubBkgTight;
     if(diphotonCuts == true){
-        cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-        cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + kinCutSubLoose + kinCutLeadLoose + ")*weight";
-
-        cutStringLeadBkgLoose = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-        cutStringSubBkgLoose = "(subGenMatchType != 1" + massCutBkg + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+        //cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        //cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+        cutStringLeadSigLoose = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        cutStringSubSigLoose = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubLoose + kinCutLeadLoose + ")*weight";
         
-        cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
-        cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+        cutStringLeadBkgLoose = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        cutStringSubBkgLoose = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutBkg + etaCutSub +kinCutSubLoose + kinCutLeadLoose + ")*weight";
+    
+        //cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        //cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+        cutStringLeadSigTight = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        cutStringSubSigTight = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
         
-        cutStringLeadBkgTight = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
-        cutStringSubBkgTight = "(subGenMatchType != 1" + massCutBkg + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+        cutStringLeadBkgTight = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        cutStringSubBkgTight = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutBkg + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+    
     }
     if(diphotonCuts == false){
-        cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + kinCutLeadLoose + ")*weight";
-        cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + kinCutSubLoose + ")*weight";
+        //cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadLoose + ")*weight";
+        //cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubLoose + ")*weight";
+        cutStringLeadSigLoose = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadLoose + ")*weight";
+        cutStringSubSigLoose = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubLoose + ")*weight";
         
-        cutStringLeadBkgLoose = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadLoose + ")*weight";
-        cutStringSubBkgLoose = "(subGenMatchType != 1" + massCutBkg + kinCutSubLoose + ")*weight";
+        cutStringLeadBkgLoose = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadLoose + ")*weight";
+        cutStringSubBkgLoose = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutBkg + etaCutSub + kinCutSubLoose + ")*weight";
         
-        cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + kinCutLeadTight + preselLead + ")*weight";
-        cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + kinCutSubTight + preselSub + ")*weight";
+        //cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
+        //cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubTight + preselSub + ")*weight";
+        cutStringLeadSigTight = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
+        cutStringSubSigTight = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub +kinCutSubTight + preselSub + ")*weight";
         
-        cutStringLeadBkgTight = "(leadGenMatchType != 1" + massCutBkg + kinCutLeadTight + preselLead + ")*weight";
-        cutStringSubBkgTight = "(subGenMatchType != 1" + massCutBkg + kinCutSubTight + preselSub + ")*weight";
+        cutStringLeadBkgTight = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
+        cutStringSubBkgTight = "(subGenMatchType != 1  && leadGenMatchType == 1" + massCutBkg + etaCutSub + kinCutSubTight + preselSub + ")*weight";
+
     }
     
     int nCuts = 320*100; //For development, faster but still pretty close to final (Change in 5th decimal place)
@@ -135,7 +170,7 @@ void allEtaRocComp(bool diphotonCuts){
         
         char buff1[100], buff2[100], buff3[100], buff4[100];
         
-        snprintf(buff1, sizeof(buff1), ",(%0.0f)", hSigLoose->GetEntries());
+        snprintf(buff1, sizeof(buff1), "(%0.0f)", hSigLoose->GetEntries());
         string nEventsSigLoose = buff1;
         
         snprintf(buff2, sizeof(buff2), "(%0.0f)", hSigTight->GetEntries());
@@ -213,18 +248,18 @@ void allEtaRocComp(bool diphotonCuts){
         sigEff_vs_bkgEff_Tight->SetMarkerColor(i+1);
         
         can_RoC->SetGrid();
-
-        string titleString = "GluGluH RoC Curves For All Eta";
+        
+        string titleString = "GJet RoC Curves For " + etaRegionStr + "Photons" + weightCutStr;
         if(diphotonCuts == true) titleString += "W/ Diphoton Cuts";
         if(diphotonCuts == false) titleString += "W/ Single Photon Cuts";
-        
-        if(i == 0){
-            sigEff_vs_bkgEff_Loose->Draw("AC");
-            sigEff_vs_bkgEff_Loose->SetTitle(titleString.c_str());
+        if(i != 2){
+            if(i == 0){
+                sigEff_vs_bkgEff_Loose->Draw("AC");
+                sigEff_vs_bkgEff_Loose->SetTitle(titleString.c_str());
+            }
+            else sigEff_vs_bkgEff_Loose->Draw("sameC");
+            sigEff_vs_bkgEff_Tight->Draw("sameC");
         }
-        else sigEff_vs_bkgEff_Loose->Draw("sameC");
-        sigEff_vs_bkgEff_Tight->Draw("sameC");
-       
         TF1 f1("f1",[&](double *bkgEffLoose, double *sigEffLoose){ return sigEff_vs_bkgEff_Loose->Eval(bkgEffLoose[0]); },0,1,0);
         double AUCLoose = f1.Integral(0,1);
         stringstream streamLoose;
@@ -237,16 +272,16 @@ void allEtaRocComp(bool diphotonCuts){
         streamTight << fixed << setprecision(6) << AUCTight;
         string AUCTightStr = streamTight.str();
         
-        string legTitleLoose = "VALIDATION: No Presel" + genLabels[i] + ", AUC = " + AUCLooseStr;
-        string legTitleTight = "VALIDATION: Presel" + genLabels[i] + ", AUC = " + AUCTightStr;
-        
-        legend_RoC->AddEntry(sigEff_vs_bkgEff_Loose,legTitleLoose.c_str(),"pl");
-        legend_RoC->AddEntry(sigEff_vs_bkgEff_Tight,legTitleTight.c_str(),"pl");
-        
+        string legTitleLoose = "#splitline{VALIDATION: No Presel" + genLabels[i] + ", AUC = " + AUCLooseStr + "}{ NSignal = " + nEventsSigLoose + ", NBkg = " + nEventsBkgLoose + "}";
+        string legTitleTight = "#splitline{VALIDATION: Presel" + genLabels[i] + ", AUC = " + AUCTightStr + "}{ NSignal = " + nEventsSigTight + ", NBkg = " + nEventsBkgTight + "}";
+        if(i != 2){
+            legend_RoC->AddEntry(sigEff_vs_bkgEff_Loose,legTitleLoose.c_str(),"pl");
+            legend_RoC->AddEntry(sigEff_vs_bkgEff_Tight,legTitleTight.c_str(),"pl");
+        }
         can_RoC->SetGrid();
         can_RoC->Update();
         can_RoC->Modified();
-        
+        //}
     }
     legend_RoC->Draw("same");
     can_RoC->SaveAs((rocOut+".png").c_str());

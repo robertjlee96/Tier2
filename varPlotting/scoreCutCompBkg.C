@@ -44,12 +44,15 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
     string fileNameDiphoton = "../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root";
     TFile *fDiph = new TFile(fileNameDiphoton.c_str());
     TTree *tDiph = (TTree*)fDiph->Get("diphotons");
-    string diphLabelUncut = "Diphoton No Presel";
-    string diphLabelCut = "Diphoton W/ Presel";
-    string diphLabelIDMVA = "Diphoton W/ idMVA > -0.99";
+    string diphPLabelUncut = "Diphoton Prompt No Presel";
+    string diphPLabelCut = "Diphoton Prompt W/ Presel";
+    string diphPLabelIDMVA = "Diphoton Prompt W/ idMVA > -0.99";
+    string diphFLabelUncut = "100*Diphoton Fake No Presel";
+    string diphFLabelCut = "100*Diphoton Fake W/ Presel";
+    string diphFLabelIDMVA = "100*Diphoton Fake W/ idMVA > -0.99";
     
     
-    string dirStr ="plots/1215/";
+    string dirStr ="plots/1229/BkgOnlyPromptFake/";
     
     
     int nEta;
@@ -82,11 +85,11 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
         etaCuts[0] = "";
     }
 
-    int nTrees = 3;
-    TTree *allTrees[3] = {tGJet,tGJet,tDiph};
-    string allLabelsUncut[3] = {gjpLabelUncut,gjfLabelUncut,diphLabelUncut};
-    string allLabelsCut[3] = {gjpLabelCut,gjfLabelCut,diphLabelCut};
-    string allLabelsIDMVA[3] = {gjpLabelIDMVA,gjfLabelIDMVA,diphLabelIDMVA};
+    int nTrees = 4;
+    TTree *allTrees[4] = {tGJet,tGJet,tDiph,tDiph};
+    string allLabelsUncut[4] = {gjpLabelUncut,gjfLabelUncut,diphPLabelUncut,diphFLabelUncut};
+    string allLabelsCut[4] = {gjpLabelCut,gjfLabelCut,diphPLabelCut,diphFLabelCut};
+    string allLabelsIDMVA[4] = {gjpLabelIDMVA,gjfLabelIDMVA,diphPLabelIDMVA,diphFLabelIDMVA};
     
     string idMVACutLead = " && leadIDMVA > - 0.99";
     string idMVACutSub = " && subIDMVA > - 0.99";
@@ -133,17 +136,18 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
             
         }
         
-        int nVars = 5;
-        string varNames[5] = {"Pt","Pt/hggMass","hggMass","SigmaIetaIeta","IDMVA"};
-        double limsLow[5] = {0.0,0.0,80.0,0.0,-1.1};
-        double limsHigh[5] = {200,1.3,180,0.1,1.1};
-        int nBins[5] = {400,520,400,400,440};
-        
+        int nVars = 20;
+        string varNames[20] = {"Pt","Pt/hggMass","hggMass","SigmaIetaIeta","IDMVA","SCRawE","R9","EtaWidth","PhiWidth","CovIEtaIPhi","S4","PhoIso03","ChgIsoWrtChosenVtx","ChgIsoWrtWorstVtx","ScEta","rho","HadTowOverEm","HadronicOverEm","EsEffSigmaRR","EsEnergyOverRawE"};
+        double limsLow[20] = {0.0,0.0,80.0,0.0,-1.1,0.0,0.0,0.0,0.0,-0.002,0.0,0.0,0.0,0.0,-5.0,0.0,0.0,0.0,0.0,0.0};
+        double limsHigh[20] = {200,1.3,180,0.1,1.1,650,1.1,0.2,0.2,0.002,1.0,25.0,25.0,25.0,5.0,60.0,0.04,0.4,8.0,0.2};
+        int nBins[20] = {400,520,400,400,440,650,440,400,400,400,400,500,500,500,400,600,400,400,400,400};
         int nEventsLoose, nEventsTight;
         
         TCanvas *can = new TCanvas ("can","can",10,10,1600,900);
         
         for(int i = 0; i < nVars; i++){
+        //for(int i = 9; i < 10; i++){
+        //for(int i = 16; i < 20; i++){
             TLegend *legend;
             if (varNames[i] == "IDMVA") legend = new TLegend(0.35,0.6,0.65,0.9,"","brNDC");
             else legend = new TLegend(0.6,0.6,0.9,0.9,"","brNDC");
@@ -160,24 +164,24 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
             string leadVarStr = "lead" + varNames[i];
             string subVarStr = "sub" + varNames[i];
             
-            if(varNames[i] == "hggMass"){
+            if(varNames[i] == "hggMass" || varNames[i] == "rho"){
                 leadVarStr = varNames[i];
                 subVarStr = varNames[i];
             }
         
             
-            TH1F *hLoose[3];
-            TH1F *hLooseSub[3];
-            TH1F *hTight[3];
-            TH1F *hTightSub[3];
-            TH1F *hIDMVA[3];
-            TH1F *hIDMVASub[3];
-            string hNamesLoose[3] = {"hLoose1","hLoose2","hLoose3"};
-            string hNamesLooseSub[3] = {"hLooseSub1","hLooseSub2","hLooseSub3"};
-            string hNamesTight[3] = {"hTight1","hTight2","hTight3"};
-            string hNamesTightSub[3] = {"hTightSub1","hTightSub2","hTightSub3"};
-            string hNamesIDMVA[3] = {"hidMVA1","hidMVA2","hidMVA3"};
-            string hNamesIDMVASub[3] = {"hidMVASub1","hidMVASub2","hidMVASub3"};
+            TH1F *hLoose[4];
+            TH1F *hLooseSub[4];
+            TH1F *hTight[4];
+            TH1F *hTightSub[4];
+            TH1F *hIDMVA[4];
+            TH1F *hIDMVASub[4];
+            string hNamesLoose[4] = {"hLoose1","hLoose2","hLoose3","hLoose4"};
+            string hNamesLooseSub[4] = {"hLooseSub1","hLooseSub2","hLooseSub3","hLooseSub4"};
+            string hNamesTight[4] = {"hTight1","hTight2","hTight3","hTight4"};
+            string hNamesTightSub[4] = {"hTightSub1","hTightSub2","hTightSub3","hTightSub4"};
+            string hNamesIDMVA[4] = {"hidMVA1","hidMVA2","hidMVA3","hidMVA4"};
+            string hNamesIDMVASub[4] = {"hidMVASub1","hidMVASub2","hidMVASub3","hidMVASub4"};
             for(int j = 0; j < nTrees; j++){
                 string cutStringLeadLooseInside;
                 string cutStringLeadTightInside;
@@ -188,6 +192,40 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
                 string cutStringSubIDMVAInside;
                 
                 if(j == 0){
+                    cutStringLeadLooseInside = "(leadGenMatchType == 1 && subGenMatchType != 1" + cutStringLeadLoose;
+                    cutStringLeadTightInside = "(leadGenMatchType == 1 && subGenMatchType != 1" + cutStringLeadTight;
+                    cutStringLeadIDMVAInside = "(leadGenMatchType == 1 && subGenMatchType != 1" + cutStringLeadIDMVA;
+                    
+                    cutStringSubLooseInside = "(subGenMatchType == 1 && leadGenMatchType != 1" + cutStringSubLoose;
+                    cutStringSubTightInside = "(subGenMatchType == 1 && leadGenMatchType != 1" + cutStringSubTight;
+                    cutStringSubIDMVAInside = "(subGenMatchType == 1 && leadGenMatchType != 1" + cutStringSubIDMVA;
+                    
+                    cutStringLeadLooseInside += "*1";
+                    cutStringLeadTightInside += "*1";
+                    cutStringLeadIDMVAInside += "*1";
+                    
+                    cutStringSubLooseInside += "*1";
+                    cutStringSubTightInside += "*1";
+                    cutStringSubIDMVAInside += "*1";
+                }
+                if(j == 1){
+                    cutStringLeadLooseInside = "(leadGenMatchType != 1 && subGenMatchType == 1" + cutStringLeadLoose;
+                    cutStringLeadTightInside = "(leadGenMatchType != 1 && subGenMatchType == 1" + cutStringLeadTight;
+                    cutStringLeadIDMVAInside = "(leadGenMatchType != 1 && subGenMatchType == 1" + cutStringLeadIDMVA;
+                    
+                    cutStringSubLooseInside = "(subGenMatchType != 1 && leadGenMatchType == 1" + cutStringSubLoose;
+                    cutStringSubTightInside = "(subGenMatchType != 1 && leadGenMatchType == 1" + cutStringSubTight;
+                    cutStringSubIDMVAInside = "(subGenMatchType != 1 && leadGenMatchType == 1" + cutStringSubIDMVA;
+                    
+                    cutStringLeadLooseInside += "*1";
+                    cutStringLeadTightInside += "*1";
+                    cutStringLeadIDMVAInside += "*1";
+                    
+                    cutStringSubLooseInside += "*1";
+                    cutStringSubTightInside += "*1";
+                    cutStringSubIDMVAInside += "*1";
+                }
+                if(j == 2){
                     cutStringLeadLooseInside = "(leadGenMatchType == 1" + cutStringLeadLoose;
                     cutStringLeadTightInside = "(leadGenMatchType == 1" + cutStringLeadTight;
                     cutStringLeadIDMVAInside = "(leadGenMatchType == 1" + cutStringLeadIDMVA;
@@ -204,7 +242,7 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
                     cutStringSubTightInside += "*1";
                     cutStringSubIDMVAInside += "*1";
                 }
-                if(j == 1){
+                if(j == 3){
                     cutStringLeadLooseInside = "(leadGenMatchType != 1" + cutStringLeadLoose;
                     cutStringLeadTightInside = "(leadGenMatchType != 1" + cutStringLeadTight;
                     cutStringLeadIDMVAInside = "(leadGenMatchType != 1" + cutStringLeadIDMVA;
@@ -213,30 +251,13 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
                     cutStringSubTightInside = "(subGenMatchType != 1" + cutStringSubTight;
                     cutStringSubIDMVAInside = "(subGenMatchType != 1" + cutStringSubIDMVA;
                     
-                    cutStringLeadLooseInside += "*1";
-                    cutStringLeadTightInside += "*1";
-                    cutStringLeadIDMVAInside += "*1";
+                    cutStringLeadLooseInside += "*100";
+                    cutStringLeadTightInside += "*100";
+                    cutStringLeadIDMVAInside += "*100";
                     
-                    cutStringSubLooseInside += "*1";
-                    cutStringSubTightInside += "*1";
-                    cutStringSubIDMVAInside += "*1";
-                }
-                if(j == 2){
-                    cutStringLeadLooseInside = "(1==1" + cutStringLeadLoose;
-                    cutStringLeadTightInside = "(1==1" + cutStringLeadTight;
-                    cutStringLeadIDMVAInside = "(1==1" + cutStringLeadIDMVA;
-                    
-                    cutStringSubLooseInside = "(1==1" + cutStringSubLoose;
-                    cutStringSubTightInside = "(1==1" + cutStringSubTight;
-                    cutStringSubIDMVAInside = "(1==1" + cutStringSubIDMVA;
-                    
-                    cutStringLeadLooseInside += "*1";
-                    cutStringLeadTightInside += "*1";
-                    cutStringLeadIDMVAInside += "*1";
-                    
-                    cutStringSubLooseInside += "*1";
-                    cutStringSubTightInside += "*1";
-                    cutStringSubIDMVAInside += "*1";
+                    cutStringSubLooseInside += "*100";
+                    cutStringSubTightInside += "*100";
+                    cutStringSubIDMVAInside += "*100";
                 }
                 //
                 hLoose[j] = new TH1F (hNamesLoose[j].c_str(),"",nBins[i],limsLow[i],limsHigh[i]);
@@ -304,7 +325,7 @@ void scoreCutCompBkg(bool etaSplit, bool diphotonCuts){
             hStack->Draw("nostackhist");
             legend->Draw("same");
             can->SetGrid();
-            if (varNames[i] == "IDMVA") can->SetLogy(1);
+            if (varNames[i] == "IDMVA" || varNames[i] == "ChgIsoWrtChosenVtx" || varNames[i] == "HadTowOverEm" || varNames[i] == "HadronicOverEm" || varNames[i] == "EsEffSigmaRR" || varNames[i] == "EsEnergyOverRawE") can->SetLogy(1);
             else can->SetLogy(0);
             
             string outName;

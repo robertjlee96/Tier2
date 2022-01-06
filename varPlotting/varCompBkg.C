@@ -77,7 +77,7 @@ void varCompBkg(bool etaSplit,bool diphotonCuts){
     }
 
     
-    string dirStr ="plots/1215/";
+    string dirStr ="plots/1223/";
 
 
     int nTrees = 3;
@@ -106,19 +106,19 @@ void varCompBkg(bool etaSplit,bool diphotonCuts){
         string cutStringLeadLoose,cutStringSubLoose,cutStringLeadTight,cutStringSubTight;
         
         if(diphotonCuts == true){
-            cutStringLeadLoose = "(leadGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-            cutStringSubLoose = "(subGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+            cutStringLeadLoose = etaCuts[e] + massCutLoose + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+            cutStringSubLoose = etaCuts[e] + massCutLoose + kinCutSubLoose + kinCutLeadLoose + ")*weight";
             
-            cutStringLeadTight = "(leadGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutLeadTight + preselLead + kinCutSubTight + preselSub + ")*weight";
-            cutStringSubTight = "(subGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutSubTight + preselSub + kinCutLeadTight + preselLead + ")*weight";
+            cutStringLeadTight = etaCuts[e] + massCutLoose + kinCutLeadTight + preselLead + kinCutSubTight + preselSub + ")*weight";
+            cutStringSubTight = etaCuts[e] + massCutLoose + kinCutSubTight + preselSub + kinCutLeadTight + preselLead + ")*weight";
                         
         }
         if(diphotonCuts == false){
-            cutStringLeadLoose = "(leadGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutLeadLoose + ")*weight";
-            cutStringSubLoose = "(subGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutSubLoose + ")*weight";
+            cutStringLeadLoose = etaCuts[e] + massCutLoose + kinCutLeadLoose + ")*weight";
+            cutStringSubLoose = etaCuts[e] + massCutLoose + kinCutSubLoose + ")*weight";
             
-            cutStringLeadTight = "(leadGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutLeadTight + preselLead + ")*weight";
-            cutStringSubTight = "(subGenMatchType == 1" + etaCuts[e] + massCutLoose + kinCutSubTight + preselSub + ")*weight";
+            cutStringLeadTight = etaCuts[e] + massCutLoose + kinCutLeadTight + preselLead + ")*weight";
+            cutStringSubTight = etaCuts[e] + massCutLoose + kinCutSubTight + preselSub + ")*weight";
         }
         int nVars = 5;
         string varNames[5] = {"Pt","Pt/hggMass","hggMass","SigmaIetaIeta","IDMVA"};
