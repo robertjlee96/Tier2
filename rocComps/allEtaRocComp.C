@@ -39,8 +39,8 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root";
     fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
     
-    //string sigStr = "ggh_125";
-    string sigStr = "GJets";
+    string sigStr = "ggh_125";
+    //string sigStr = "GJets";
     string bkgStr = "GJets";
     
     string genLabels[10];
@@ -49,7 +49,7 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>18";
     genLabels[3] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, Only 1 Prompt 1 Fake";
     
-    string mvaOut = "curves/"+ etaRegion + "Photons_HighWeightAll_OnlyPF_GJet_0106";
+    string mvaOut = "curves/"+ etaRegion + "Photons_HighWeightAll_OnlyPF_GGH_0106";
     if(diphotonCuts == true) mvaOut += "_Diphoton";
     if(diphotonCuts == false) mvaOut += "_SinglePhoton";
     
@@ -82,8 +82,8 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     string weightCut = "&& weight > 2.0";
     string weightCutStr = " Weight > 2.0";
     
-    //string massCutSig = " && hggMass > 121 && hggMass < 129";
-    string massCutSig = " && hggMass > 95 " + weightCut;
+    string massCutSig = " && hggMass > 121 && hggMass < 129";
+    //string massCutSig = " && hggMass > 95 " + weightCut;
     string massCutBkg = " && hggMass > 95 " + weightCut;
     
     string kinCutLeadLoose = " && leadPt > 17 && leadPt/hggMass > 0.15";
@@ -97,36 +97,36 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
         
     string cutStringLeadSigLoose,cutStringSubSigLoose,cutStringLeadBkgLoose,cutStringSubBkgLoose,cutStringLeadSigTight,cutStringSubSigTight,cutStringLeadBkgTight,cutStringSubBkgTight;
     if(diphotonCuts == true){
-        //cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-        //cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubLoose + kinCutLeadLoose + ")*weight";
-        cutStringLeadSigLoose = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
-        cutStringSubSigLoose = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+        cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubLoose + kinCutLeadLoose + ")*weight";
+        //cutStringLeadSigLoose = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
+        //cutStringSubSigLoose = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubLoose + kinCutLeadLoose + ")*weight";
         
         cutStringLeadBkgLoose = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadLoose + kinCutSubLoose + ")*weight";
         cutStringSubBkgLoose = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutBkg + etaCutSub +kinCutSubLoose + kinCutLeadLoose + ")*weight";
     
-        //cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
-        //cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
-        cutStringLeadSigTight = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
-        cutStringSubSigTight = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+        cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
+        //cutStringLeadSigTight = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
+        //cutStringSubSigTight = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
         
         cutStringLeadBkgTight = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadTight + kinCutSubTight + preselLead + preselSub + ")*weight";
         cutStringSubBkgTight = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutBkg + etaCutSub + kinCutSubTight + kinCutLeadTight + preselSub + preselLead + ")*weight";
     
     }
     if(diphotonCuts == false){
-        //cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadLoose + ")*weight";
-        //cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubLoose + ")*weight";
-        cutStringLeadSigLoose = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadLoose + ")*weight";
-        cutStringSubSigLoose = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubLoose + ")*weight";
+        cutStringLeadSigLoose = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadLoose + ")*weight";
+        cutStringSubSigLoose = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubLoose + ")*weight";
+        //cutStringLeadSigLoose = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadLoose + ")*weight";
+        //cutStringSubSigLoose = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub + kinCutSubLoose + ")*weight";
         
         cutStringLeadBkgLoose = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadLoose + ")*weight";
         cutStringSubBkgLoose = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutBkg + etaCutSub + kinCutSubLoose + ")*weight";
         
-        //cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
-        //cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubTight + preselSub + ")*weight";
-        cutStringLeadSigTight = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
-        cutStringSubSigTight = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub +kinCutSubTight + preselSub + ")*weight";
+        cutStringLeadSigTight = "(leadGenMatchType == 1" + massCutSig + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
+        cutStringSubSigTight = "(subGenMatchType == 1" + massCutSig + etaCutSub + kinCutSubTight + preselSub + ")*weight";
+        //cutStringLeadSigTight = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutSig + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
+        //cutStringSubSigTight = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutSig + etaCutSub +kinCutSubTight + preselSub + ")*weight";
         
         cutStringLeadBkgTight = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutBkg + etaCutLead + kinCutLeadTight + preselLead + ")*weight";
         cutStringSubBkgTight = "(subGenMatchType != 1  && leadGenMatchType == 1" + massCutBkg + etaCutSub + kinCutSubTight + preselSub + ")*weight";
@@ -249,7 +249,7 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
         
         can_RoC->SetGrid();
         
-        string titleString = "GJet RoC Curves For " + etaRegionStr + "Photons" + weightCutStr;
+        string titleString = "GGH RoC Curves For " + etaRegionStr + "Photons" + weightCutStr;
         if(diphotonCuts == true) titleString += "W/ Diphoton Cuts";
         if(diphotonCuts == false) titleString += "W/ Single Photon Cuts";
         if(i != 2){

@@ -1,100 +1,3 @@
-ls -lthr b ../reallyOldStuff/newXGB/endcap/
-cd barrel/
-ls -lthr 
-cp XMLtrainModelGJet.py MoreVarsXMLtrainModelGJet.py
-ls -lthr  ../reallyOldStuff/newXGB/barrel
-ls -lthr  ../../reallyOldStuff/newXGB/barrel
-ls -lthr 
-cp NEWtmva_utils.py MoreVarsTmvaUtils.py
-cp ../../reallyOldStuff/newXGB/barrel/newPTCutUtils.py ./
-cp newPTCutUtils.py MoreVarsPtCutUtils
-mv MoreVarsPtCutUtils MoreVarsPtCutUtils.py
-ls -lthr 
-root -l ../../NTuples/GGH_M95PTM25_HovrE_DPT075_1117.root 
-cd ../..//
-ls - lthjre 
-ls - lthr 
-ls -lthr 
-ls -lthr reallyOldStuff/
-cp reallyOldStuff/splitFiles.C ./
-ls -lthr NTuples/s
-ls -lthr NTuples/
-source sourceMe.sh 
-ls -lthr 
-ls -lthr  reallyOldStuff/
-cp  reallyOldStuff/splitFiles.C ./
-ls -lthr 
-cp splitFiles.C addCuts.C
-ls -lthr NTuples/
-root -l addCuts.C 
-root -l ./NTuples/GJets_M95PTM25_HovrE_DPT075_1117.root
-root -l addCuts.C 
-ls -lthr NTuples/
-root -l NTuples/OUTTEST.root 
-root -l addCuts.C 
-ls -lthr NTuples/
-cd varPlotting/
-ls -lthr
-cp allEtaVarCompSignal.C etaSplitVarCompSignal.C
-source sourceMe.sh 
-ls -lthr 
-cd varPlotting/
-ls -lthr 
-cd
-scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/GluGluHH_2B2G_HovrE_DPT075_1124.root ./NTuples/
-ls -lthr 
-root -l NTuples/GluGluHH_2B2G_HovrE_DPT075_1124.root 
-root -l makeSigBkg.C 
-cd ../vaibhav2.g/
-cd
-cd varPlotting/
-root -l etaSplitVarCompSignal.C 
-ls -lthr ../NTuples/
-rm -rf ../NTuples/DiHiggs_And_GJet_M95PTM25_HovrE_DPT075_1118.root 
-cd ../
-scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/GluGluHH_2B2G_HovrE_DPT075_1129.root ./NTuples/
-root -l makeSigBkg.C 
-root -l ./NTuples/GluGluHH_2B2G_HovrE_DPT075_1129.root
-root -l makeSigBkg.C 
-cd varPlotting/
-root -l etaSplitVarCompSignal.C 
-root -l allEtaVarCompSignal.C 
-cp etaSplitVarCompSignal.C etaSplitScoreCutVarCompSignal.C
-;s
-ls
-root -l etaSplitScoreCutVarCompSignal.C 
-ls -lthr 
-cp allEtaVarCompSignal.C allEtaScoreCutVarCompSignal.C
-root -l â allEtaScoreCutVarCompSignal.C
-root -l allEtaScoreCutVarCompSignal.C
-root -l allEtaScoreCutVarCompSignal.C 
-source sourceMe.sh 
-cd varPlotting/
-ls -lthnr 
-cp allEtaVarCompSignal.C allEtaVarCompBkg.C
-root -l allEtaVarCompBkg.C 
-ls -lthr 
-cd ../
-ls -lthr 
-ls -lthr NTuples/
-root -l NTuples/diPhotonJets_M95PTM25_HovrE_DPT075_1008.root 
-root -l makeSigBkg.C 
-cd varPlotting/
-root -l allEtaVarCompBkg.C 
-root -l ../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root 
-root -l ../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root
-root -l allEtaVarCompBkg.C 
-cp allEtaVarCompBkg.C allEtaScoreCutVarCompBkg.C
-cd plots/
-ls -lthr 
-rm -rf ./
-ls -ltr 
-rm -rf ./*
-ls -lthr 
-mkdir 1201
-cd ../
-root -l allEtaScoreCutVarCompBkg.C 
-root -l allEtaVarCompBkg.C 
 root -l allEtaScoreCutVarCompSignal.C 
 root -l allEtaVarCompSignal.C 
 root -l allEtaScoreCutVarCompBkg.C 
@@ -998,3 +901,100 @@ ls -lthr plots/
 ls -lthr plots/0104/Sig/
 root -l 
 source sourceMe.sh 
+cd rocComps/
+ls -lthr 
+ls -lthr curves/ 
+root -l BarrelPhotons_OnlyPF_GGH_0104_SinglePhoton_ROC.root
+root -l curves/BarrelPhotons_OnlyPF_GGH_0104_SinglePhoton_ROC.root
+root -l curves/EndcapPhotons_OnlyPF_GGH_0104_SinglePhoton_ROC.root
+cd ../
+cd varPlotting/
+ls -lthr 
+cp findIDMVACutEtaSplit.C findSameCutsEtaSplit.C
+ls -lthr plots/
+ls -lthr plots/0104/
+ls -lthr plots/0104/Sig/
+ls -lthr plots/0104/CompModels/
+ls -lthr plots/0104/CompModels/GenMatchSplit/
+ls -lthr 
+mkdir plots/0105/
+root -l 
+ls -lthr ../NTuples/
+root -l 
+mkdir plots/0105/CompModels
+mkdir plots/0105/CompModels/GenMatchSplit
+root -l 
+root -l plots/0105/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_ScEta_PF.root 
+root -l plots/0105/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_Pt_PF.root 
+root -l plots/0105/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_weight_PF.root 
+root -l 
+ls -lthr 
+root -l scoreCutCompDiffModels.C(true,false)
+root -l 
+ls
+cd ../rocComps/
+ls -lthr curves/
+root -l 
+root -l ../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root
+root -l GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root
+root -l ../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root 
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l curves/BarrelPhotons_HighWeight_OnlyPF_GJets_0105_SinglePhoton_ROC.root 
+root -l curves/BarrelPhotons_HighWeight_OnlyPF_GGH_0105_SinglePhoton_ROC.root
+rm curves/*0105*
+ls -lthr curves/
+root -l 
+root -l curves/BarrelPhotons_LowWeight_OnlyPF_GGH_0105_SinglePhoton_ROC.root
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l curves/BarrelPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+root -l 
+ls -lthr curves/
+ls
+cd curves/
+ls -lthr 
+ls -lthr n
+ls -lthr 
+root -l BarrelPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root 
+root -l BarrelPhotons_HighWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root
+root -l BarrelPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root
+root -l EndcapPhotons_HighWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root
+root -l EndcapPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root
+root -l BarrelPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root 
+root -l EndcapPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root 
+root -l BarrelPhotons_LowWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root 
+root -l BarrelPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.
+root -l BarrelPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root
+cd ../
+ls 
+root -l 
+cd
+git add .
+git commit -m "01/06 Update" 
+git 
+git show
+git push master main
+git remote -v
+git push
+cd rocComps/
+root -l 
