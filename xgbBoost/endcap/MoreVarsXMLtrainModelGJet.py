@@ -115,7 +115,7 @@ model.fit(X_train, y_train, sample_weight = w_train, eval_metric=["auc", "loglos
 #tmva_utils.convert_model(model.get_booster().get_dump(),input_variables =[('f0','F'),('f1','F'),('f2','F'),('f3','F'),('f4','F'),('f5','F'),('f6','F'),('f7','F'),('f8','F'),('f9','F'),('f10','F'),('f11','F')],output_xml='gJetModelConversion1208Nest10.xml')
 #tmva_utils.convert_model(model.get_booster().get_dump(),input_variables =[('SCRawE','F'),('r9','F'),('sigmaIetaIeta','F'),('etaWidth','F'),('phiWidth','F'),('covIEtaIPhi','F'),('s4','F'),('phoIso03','F'),('chgIsoWrtChosenVtx','F'),('chgIsoWrtWorstVtx','F'),('scEta','F'),('rho','F')],output_xml='gJetModelConversion1221Nest10.xml')
 #model_fname = "Model_1027_MD18_GJets_SACuts_20LowMass2XReweight.model"
-model_name = "Model_MD18_LR03_M95PTM25_DPT075_T25PT18_OnlyPFPairs_UL2017_1223_Endcap"
+model_name = "Model_MD18_LR03_M95PTM25_DPT075_T25PT18_OnlyPFPairs_NoPtReweight_UL2017_0109_Endcap"
 model_fname = model_name + ".model"
 model_xmlName = model_name + ".xml"
 

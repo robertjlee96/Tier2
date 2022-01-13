@@ -1,252 +1,3 @@
-root -l allEtaScoreCutVarCompSignal.C 
-root -l allEtaVarCompSignal.C 
-root -l allEtaScoreCutVarCompBkg.C 
-root -l etaSplitVarCompSignal.C 
-root -l etaSplitScoreCutVarCompSignal.C
-source sourceMe.sh 
-cd varPlotting/
-ls -lthr 
-ls -lthr plots/
-
-ls -lthr plots/1201/
-ls -lthr plots/
-rm plots/1201_*
-ls -lthr plots/
-root -l etaSplitVarCompSignal.C 
-root -l etaSplitScoreCutVarCompBkg.C 
-ls -lthr plots/1201/
-root -l etaSplitVarCompBkg.C 
-source sourceMe.sh 
-cd varPlotting/
-ls -lthr
-root -l allEtaVarCompSignal.C 
-root -l plots/1201/SignalVariableDistributions_1201_IDMVA.root
-rot -l etaSplitVarCompSignal.C 
-root -l etaSplitVarCompSignal.C 
-root -l allEtaVarCompSignal.C 
-root -l etaSplitVarCompSignal.C 
-root -l etaSplitVarComp
-root -l etaSplitVarCompBkg.C 
-.q
-ls -lthr ../NTuples/
-root -l allEtaScoreCutVarCompSignal.C 
-root -l allEtaScoreCutVarComp
-root -l allEtaScoreCutVarCompSignal.C 
-root -l etaSplitScoreCutVarCompSignal.C 
-root -l 
-cp etaSplitScoreCutVarCompSignal.C scoreCutCompBkg.C
-ls -lthr 
-mkdir tmp
-mv {allEtaVarCompSignal.C,allEtaScoreCutVarCompSignal.C,allEtaScoreCutVarCompBkg.C,allEtaVarCompBkg.C,etaSplitScoreCutVarCompBkg.C,etaSplitVarCompSignal.C,etaSplitVarCompBkg.C,etaSplitScoreCutVarCompSignal.C} tmp/
-ls -lthr 
-root -l 
-ls -lthr plots/
-rm plots/1201/*
-root -l 
-rm plots/1201/*
-root -l 
-root -l
-root -l 
-cp tmp/etaSplitScoreCutVarCompBkg.C scoreCutCompBkg.C 
-root -l
-ls -lthr ../NTuples/
-scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/{GGH_TMVA_1206.root,VBF_TMVA_1206.root,TTH_TMVA_1206.root,Diphoton_TMVA_1206.root,GJets_TMVA_1206.root} ../NTuples/
-cd
-ls -lthr 
-ls -lthr NTuples/
-root -l makeSigBkg.C 
-root -l ./NTuples/Diphoton_TMVA_1206.root
-ls -lthr NTuples/
-root -l makeSigBkg.C 
-ls -lthr NTuples/
-root -l makeSigBkg.C 
-root -l NTuples/VBF_TMVA_1206.root 
-root -l makeSigBkg.C 
-ls -lthr NTuples/
-root -l makeSigBkg.C 
-scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/GGHH_2B2G_TMVA_1206.root ./NTuples/
-root -l makeSigBkg.C 
-ls -lthr NTuples/
-source sourceMe.sh 
-s -lthr NTuples/
-ls -lthr NTuples/
-cd rocComps/
-ls -lthr 
-root -l allEtaRocComp.C 
-cd ../
-ls -lthr 
-root -l addCuts.C 
-.ls
-ls
-ls -lthr NTuples/
-root -l NTuples/SinglePhotonCutsTest.root 
-ls -lthr 
-cat xgbBoost/barrel/newPTCutUtils.py 
-cat xgbBoost/endcap/newPTCutUtils.py 
-cat xgbBoost/barrel/newPTCutUtils.py 
-root -l addCuts.C 
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-root -l NTuples/SinglePhotonCutsTest.root 
-cp addCuts.C addCutsTmp.C
-root -l addCuts.C
-ls -lthr NTuples/
-root -l NTuples/SinglePhotonCutsTest.root
-rm NTuples/SinglePhotonCutsTest.root 
-root -l addCuts
-root -l addCuts.C 
-root -l NTuples/SinglePhotonCutsTest.root
-rm NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-rm NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-rm NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-root -l NTuples/SinglePhotonCutsTest.root
-root -l addCuts.C 
-rm NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-root -l NTuples/SinglePhotonCutsTest.root
-root -l addCutsTmp.C 
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCutsTmp.C 
-root -l NTuples/SinglePhotonCutsTest.root 
-cd
-source sourceMe.sh 
-cd xgbBoost/barrel/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-cd
-source sourceMe.sh 
-cd xgbBoost/barrel/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-source sourceMe.sh 
-cd xgbBoost/endcap/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-source sourceMe.sh 
-ls -lthr 
-root -l addCutsTmp.C 
-root -l 
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCutsTmp.C 
-root -l NTuples/SinglePhotonCutsTest.root 
-cp addCuts.C addCutsTmp.C 
-root -l addCuts.C
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-root -l NTuples/SinglePhotonCutsTest.root 
-root -l addCuts.C 
-cd xgbBoost/
-ls -lthr 
-cd ../reallyOldStuff/
-ls -lthr 
-mv fileReweighting/ ../
-cd ../
-ls -lthr 
-ls -lthr fileReweighting/
-cd fileReweighting/
-rm {add2DweightsGluGlu.cc,create2DweightsGluGlu.cc}
-root -l create2DweightsGJet.cc 
-root -l add2DweightsGJet.cc 
-cd ../
-cd xgbBoost/barrel/
-ls -lthr 
-ls -lthr ../../NTuples/
-screen 
-cd
-root -l addCuts.C 
-cd fileReweighting/
-root -l create2DweightsGJet.cc 
-root -l add2DweightsGJet.cc 
-cd ../xgbBoost/barrel/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-cd ../../
-root -l addCuts.C
-cd fileReweighting/
-root -l create2DweightsGJet.cc 
-root -l add2DweightsGJet.cc 
-cd ../xgbBoost/barrel/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-ls -lthr 
-screen
-ls -lthr ../endcap/
-cp {NEWtmva_utils.py,MoreVarsPtCutUtils.py,MoreVarsXMLtrainModelGJet.py,MoreVarsTmvaUtils.py} ../endcap/
-cd ../endcap/
-rm NEWtmva_utils.py 
-cd
-screen
-ls -lthr 
-ls -lthr xgbBoost/barrel/
-ls -lthr 
-cd xgbBoost/
-scp barrel/Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1208.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models
-scp endcap/Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1208_Endcap.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models
-source sourceMe.sh 
-scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/{GGH_M95PTM25_DPT075_HovrE_Retrain_1208.root,GJet_M95PTM25_DPT075_HovrE_Retrain_1208.root} ./NTuples/
-ls -lthr 
-ls -lthr NTuples/
-root -l makeSigBkg.C 
-ls -lthr NTuples/
-cd rocComps/
-ls -lthr 
-root -l allEtaRocComp.C 
-cd ../xgbBoost/barrel/ 
-ls -lthr 
-python12.7 MoreVarsXMLtrainModelGJet.py 
-python2.7 MoreVarsXMLtrainModelGJet.py 
-cd ../endcap/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-ls -lthr 
-mv Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1208_Endcap.xml Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1209_Endcap.xml
-scp Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1209_Endcap.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models
-cd ../barrel/
-scp Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1209.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models
-source sourceMe.sh 
-scp Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1209.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models
-source sourceMe.sh 
-cd xgbBoost/barrel/
-ls -lthr 
-scp  Model_MD18_LR03_M95PTM25_DPT075_GJets_UL2017_1209.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models
-source sourceMe.sh 
-scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/{GJet_M95PTM25_DPT075_HovrE_RetrainAgain_1210.root,GGH_M95PTM25_DPT075_HovrE_RetrainAgain_1210.root} ./NTuples/
-ls -lthr NTuples/
-root -l makeSigBkg.C 
-ls -lthr 
-cd rocComps/
-ls -lthr 
-ls -lthr ../NTuples/
-root -l allEtaRocComp.C 
-cd
-source sourceMe.sh 
-cd xgbBoost/barrel/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-cd
-source sourceMe.sh 
-cd xgbBoost/endcap/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-cd 
-source sourceMe.sh 
-cd xgbBoost/endcap/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-cd
-source sourceMe.sh 
-cd xgbBoost/
-cd barrel/
-python2.7 MoreVarsXMLtrainModelGJet.py 
-source sourceMe.sh 
-cd xgbBoost/barrel/
-ls -lthr 
-screen
-screen -r
-screen -r 3178288.pts-21.uaf-1
-screen -r 
-ls -lthr 
-screen
 scp Model_MD18_LR03_M95PTM25_DPT075_Test25Percent_UL2017_1213.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models/
 cd ../endcap/
 scp Model_MD18_LR03_M95PTM25_DPT075_Test25Percent_UL2017_1213_Endcap.xml rlee@lxplus.cern.ch:/eos/user/r/rlee/models/
@@ -998,3 +749,252 @@ git remote -v
 git push
 cd rocComps/
 root -l 
+source sourceMe.sh 
+cd rocComps/curves/
+ls -lthr 
+root -l EndcapPhotons_HighWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root
+root -l BarellPhotons_LowWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root
+root -l BarrelPhotons_LowWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root
+root -l BarrelPhotons_HighWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root
+root -l BarrelPhotons_LowWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root
+cd ../../varPlotting/
+ls -lthr 
+ls -lthr plots/
+ls -lthr plots/0105/CompModels/GenMatchSplit/
+root -l plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root
+cd
+add .
+git add .
+git commit -m "01/06 Commit 2"
+git push
+ls -lthr 
+cp sourceMe.sh gitSynch.sh
+sh gitSynch.sh "01/06 Test Commit"
+.q
+sh gitSynch.sh "01/06 Test Commit"
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr 
+ls -lthr plots/
+ls -lthr plots/0105/CompModels/GenMatchSplit/
+root -l plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root
+root -l plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_hggMass_PF.root
+root -l plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root
+root -l plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_ScEta_PF.root
+ls -lthr 
+ls -lthr
+cp scoreCutCompBkg.C scoreCutCompGGHandGJet.C
+mkdir plots/0107
+mkdir plots/0107/GGHandGJetPromptFake
+ls -lthr ../NTuples/
+root -l 
+root -l plots/0107/GGHandGJetPromptFake/LowWeightGJet_GGHandGJet_idMVACut_SinglePhotonCuts_PtOvrM.root 
+source sourceMe.sh 
+cd xgbBoost/barrel/
+ls -lthr ~/addCuts
+ls -lthr ~/
+c
+cd
+root -l addCutsOnlyCorrectPairs.C 
+cd xgbBoost/barrel/
+cd
+ls -lthr NTuples/
+mv NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs.root NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs_Train.root
+cd addCuts
+cd fileReweighting/
+root -l create2DweightsGJet.cc 
+source sourceMe.sh 
+cd xgbBoost/E
+cd xgbBoost/endcap/
+python2.7 MoreVarsXMLtrainModelGJet.py 
+source sourceMe.sh 
+cd xgbBoost/barrel/
+python2.8 MoreVarsXMLtrainModelGJet.py 
+python2.7 MoreVarsXMLtrainModelGJet.py 
+source sourceMe.sh 
+cd xgbBoost/endcap/
+python2.7 MoreVarsXMLtrainModelGJet.py 
+source sourceMe.sh 
+cd xgbBoost/barrel/
+python2.7 MoreVarsXMLtrainModelGJet.py 
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr 
+source sourceMe.sh 
+cd varPlotting/plots/
+ls -lthr 
+ls -lthr 1228/Bkg/Background_idMVACut_DiphotonCuts_PtOvrM.root
+root -l 1228/Bkg/Background_idMVACut_DiphotonCuts_PtOvrM.root
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root
+cd
+source sourceMe.sh 
+cd varPlotting/plots/
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root
+cd ../
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_r9_PF.root
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_R9_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_IDMVA_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_ChgIsoWrtWorstVtx_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_IDMVA_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_ChgIsoWrtWorstVtx_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_PhoIso03_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_HadTowOverEm_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_HadronicOverEm__PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_HadronicOverEm_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_HadTowOverEm_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_HadronicOverEm_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_SigmaIetaIeta_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_ScEta__PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_ScEta_PF.root 
+root -l plots/1229/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_HadTowOverEm_PF.root 
+source sourceMe.sh 
+cd xgbBoost/barrel/
+cd
+screen
+cd fileReweighting/
+root -l create2DweightsGJet.cc 
+root -l add2DweightsGJet.cc 
+cd
+screen
+screen -r 
+screen -r 907284.pts-1.uaf-1
+screen -r 906174.pts-1.uaf-1
+screen -r 904725.pts-1.uaf-1
+screen -r 487941
+screen -r 60895
+scren -r 58858
+screen -r 58858
+screen -r
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr plots/
+cd plots/
+ls -lthr 
+ls -lthr 1229/BkgOnlyPromptFake/Background_idMVACut_
+ls -lthr 1229/BkgOnlyPromptFake/Background_idMVACut_DiphotonCuts_PtOvrM.root 
+root -l 1229/BkgOnlyPromptFake/Background_idMVACut_DiphotonCuts_PtOvrM.root 
+source sourceMe.sh 
+cd rocComps/curves/
+ls -lthr 
+ls lthr 
+ls -lthr 
+root -l AllEta_TestSplitComp_OnlyPromptFake_GGH_1229_SinglePhoton_ROC.root
+ls -lthr 
+cd ../
+ls -lthr 
+root -l 
+source sourceMe.sh 
+screem -r 60197
+screen -r 60197
+screen -r
+cd xgbBoost/barrel/
+ls -lthre 
+ls -lthr
+scp {Model_MD18_LR03_M95PTM25_DPT075_T25PT18_OnlyPFPairs_NoPtReweight_UL2017_0109.xml,Model_MD18_LR03_M95PTM15_DPT075_T25PT18_OnlyPFPairs_UL2017_0109.xml} rlee@lxplus.cern.ch:/eos/user/r/rlee/models
+cd ../endcap/
+ls -lthr 
+scp {Model_MD18_LR03_M95PTM25_DPT075_T25PT18_OnlyPFPairs_NoPtReweight_UL2017_0109_Endcap.xml,Model_MD18_LR03_M95PTM15_DPT075_T25PT18_OnlyPFPairs_UL2017_0109_Endcap.xml} rlee@lxplus.cern.ch:/eos/user/r/rlee/models
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr 
+ls -lthr ../NTuples/
+cp scoreCutCompDiffModels.C scoreCutCompGGHandGJetTMP.C 
+mkdir plots/0110/
+mkdir plots/0110/GGHandGJetPromptFake
+root -l 
+root -l plots/0110/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root 
+cd
+scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg{GGH_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root,GGH_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root,GJet_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root,GJet_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root}  NTuples/
+scp rlee@lxplus.cern.ch:/afs/cern.ch/work/r/rlee/public/CMSSW_10_6_8/src/flashgg/{GGH_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root,GGH_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root,GJet_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root,GJet_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root}  NTuples/
+ls -lthr NTuples/
+source sourceMe.sh 
+ls -lthr 
+ls -lthr NTuples/
+root -l makeSigBkg.C 
+ls -lthr 
+cd rocComps/
+ls -lthr 
+ls -lthr ../NTuples/
+root -l 
+ls -lthr curves/
+root -l 
+source sourceMe.sh 
+cd rocComps/
+ls -lthr curves/
+root -l curves/BarrelPhotons_OnlyPF_GGH_0110_SinglePhoton_ROC.root
+cd ../varPlotting/
+ls -lthr 
+cd plots/
+ls -lthr 
+cd 0110/
+ls -lthr 
+cd GGHandGJetPromptFake/
+ls -lthr 
+root -l ValidationSamples_idMVACut_SinglePhotonCuts_hggMass.root 
+root -l ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root 
+root -l ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root 
+cd ../../
+cd ../
+ls -lthr 
+ls -lthr ../NTuples/
+root -l 
+mkdir plots/0111
+mkdir plots/0111/GGHandGJetPromptFake
+cd ../
+ls -lther 
+cd varPlotting/
+ls -lthr 
+root -l 
+root -l
+ls -lthr ../NTuples/
+root -l
+root -l 
+ls -lthr plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root 
+root -l plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root 
+root -l 
+ls -lthr plots/0111/
+ls -lthr plots/0111/GGHandGJetPromptFake/
+ls -lthr plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root 
+root -l  plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root 
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr 
+ls -lthr plots/0111/GGHandGJetPromptFake/
+root -l plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root 
+root -l plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root 
+root -l plots/0111/GGHandGJetPromptFake/Barrel_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root 
+root -l plots/0111/GGHandGJetPromptFake/Endcap_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root 
+cd ../rocComps/
+ls -lthr curves/
+root -l curves/BarrelPhotons_OnlyPF_GGH_0110_Diphoton_ROC.root
+cd ../varPlotting/
+root -l plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_hggMass.root 
+a
+ls -lthr 
+cd ../
+ls -lthr 
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr
+cp scoreCutCompDiffModels.C slidingScoreCuts.C
+mv slidingScoreCuts.C slidingScoreCutsTMP.C
+cp slidingScoreCutsTMP.C slidingScoreCuts.C
+mv slidingScoreCuts.C fitMassSlidingCuts.C
+ls -lthr 
+cd plots/
+ls 
+cd 0111/GGHandGJetPromptFake/
+ls -lthr 
+root -l Endcap_ValidationSamples_idMVACut_SinglePhotonCuts_EsEnergyOverRawE.root
+cd ../../../
+ls -lthr 
+source sourceMe.sh 
+cd varPlotting/
+ls -lthr 
+mkdir plots/0113
+root -l fitMassSlidingCuts.C 
+ls -lthr ../NTuples/
+root -l ../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root
+root -l fitMassSlidingCuts.C 
+source sourceMe.sh 

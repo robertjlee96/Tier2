@@ -108,7 +108,7 @@ def load_file(input_file, geoSelection = None, ptCuts = None):
 
                 if label == 1:
                     # eta/pt reweighting is only for signal
-                    this_weights = this_weights * tree.array('PtvsEtaWeight')[indices]
+                    this_weights = this_weights# * tree.array('PtvsEtaWeight')[indices]
 
                 train_weights.append(this_weights)
 

@@ -26,8 +26,8 @@
 
 void add2DweightsGJet(){
 
-  string FileName = "../NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1223_OnlyPromptFakePairs_Train.root";
-  string FileNameW = "../NTuples/SinglePhoton_GJet_M95PTM25_DPT075_1223_OnlyPromptFakePairs_Train_Proc.root";
+  string FileName = "../NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs_Train.root";
+  string FileNameW = "../NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs_Train_Proc.root";
 
   TFile *fileIn = new TFile("Weights_PtVSeta_Hgg_Gjets_all.root");
   TH2F *hWeightEB = (TH2F*)fileIn->Get("hWeight_bar");

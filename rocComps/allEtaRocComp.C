@@ -35,9 +35,9 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     int nFiles = 4;
     
     fileNames[0] = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
-    fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_1213.root";
-    fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_Test25Percent_Pt18_1216.root";
-    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
+    fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_OldModel0929_NoPtReweighting_0112.root";
+    fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root";
+    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root";
     
     string sigStr = "ggh_125";
     //string sigStr = "GJets";
@@ -45,11 +45,11 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     
     string genLabels[10];
     genLabels[0] = " || TRAIN:M95, PTM25, DPT075 , H/E, Old Best";
-    genLabels[1] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>17";
-    genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, pt>18";
-    genLabels[3] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, Only 1 Prompt 1 Fake";
+    genLabels[1] = " || TRAIN:M95, PTM25, DPT075 , H/E, Old No Pt Reweight ";
+    genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, 1 Prompt 1 Fake, No Pt Reweight";
+    genLabels[3] = " || TRAIN:M95, PTM15, DPT075 , H/E, 75% Train, 1 Prompt 1 Fake";
     
-    string mvaOut = "curves/"+ etaRegion + "Photons_HighWeightAll_OnlyPF_GGH_0106";
+    string mvaOut = "curves/"+ etaRegion + "Photons_OnlyPF_GGH_0110";
     if(diphotonCuts == true) mvaOut += "_Diphoton";
     if(diphotonCuts == false) mvaOut += "_SinglePhoton";
     
@@ -79,8 +79,10 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
         etaRegionStr = "All";
         cout<<"Plotting for all scEta -- Unrecognized string (use 'Barrel' or 'Endcap')"<<endl;
     }
-    string weightCut = "&& weight > 2.0";
-    string weightCutStr = " Weight > 2.0";
+    //string weightCut = "&& weight > 2.0";
+    //string weightCutStr = " Weight > 2.0";
+    string weightCut = "";
+    string weightCutStr = "";
     
     string massCutSig = " && hggMass > 121 && hggMass < 129";
     //string massCutSig = " && hggMass > 95 " + weightCut;
@@ -252,7 +254,7 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
         string titleString = "GGH RoC Curves For " + etaRegionStr + "Photons" + weightCutStr;
         if(diphotonCuts == true) titleString += "W/ Diphoton Cuts";
         if(diphotonCuts == false) titleString += "W/ Single Photon Cuts";
-        if(i != 2){
+        if(i != 10000){
             if(i == 0){
                 sigEff_vs_bkgEff_Loose->Draw("AC");
                 sigEff_vs_bkgEff_Loose->SetTitle(titleString.c_str());
@@ -274,7 +276,7 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
         
         string legTitleLoose = "#splitline{VALIDATION: No Presel" + genLabels[i] + ", AUC = " + AUCLooseStr + "}{ NSignal = " + nEventsSigLoose + ", NBkg = " + nEventsBkgLoose + "}";
         string legTitleTight = "#splitline{VALIDATION: Presel" + genLabels[i] + ", AUC = " + AUCTightStr + "}{ NSignal = " + nEventsSigTight + ", NBkg = " + nEventsBkgTight + "}";
-        if(i != 2){
+        if(i != 10000){
             legend_RoC->AddEntry(sigEff_vs_bkgEff_Loose,legTitleLoose.c_str(),"pl");
             legend_RoC->AddEntry(sigEff_vs_bkgEff_Tight,legTitleTight.c_str(),"pl");
         }

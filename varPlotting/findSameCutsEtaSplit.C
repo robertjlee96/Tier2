@@ -31,13 +31,13 @@ void findSameCutsEtaSplit(bool etaSplit, bool diphotonCuts){
     gStyle->SetOptStat(0);
     gStyle->SetTitle(0);
     
-    int nBins = 200000;
+    int nBins = 20000000;
 
     string fileNameIDMVA1 = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
     TFile *f1 = new TFile(fileNameIDMVA1.c_str());
     TTree *tGJet1 = (TTree*)f1->Get("GJets");
     
-    string fileNameIDMVA2 = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HHovrE_Test25Percent_FixSplit_1222.root";
+    string fileNameIDMVA2 = "../NTuples/GGH_And_GJets_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root";
     TFile *f2 = new TFile(fileNameIDMVA2.c_str());
     TTree *tGJet2 = (TTree*)f2->Get("GJets");
     
@@ -171,7 +171,8 @@ void findSameCutsEtaSplit(bool etaSplit, bool diphotonCuts){
             double tmpIDMVAInt = hIDMVA2->Integral(mvaBin,mvaMaxBin);
             
             propIDMVACut = tmpIDMVAInt/totalInt;
-            if(propIDMVACut <= propIDMVA1)break;
+            //if(propIDMVACut <= propIDMVA1)break;
+            if(propIDMVACut <= 0.75)break;
         }
         cout<<"Eta Label = "<<etaLabels[e]<<endl;
         cout<<"PropIDMVA1 < -0.99 = "<<propIDMVA1<<endl;
