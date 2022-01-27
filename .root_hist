@@ -1,457 +1,487 @@
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x scoreCutCompSig.C(false,false)
-.q
-.x scoreCutCompSig.C(false,false)
-Roberts-MacBook-Pro:varPlotting robertlee$ open ../xgbBoost/endcap/MoreVarsXMLtrainModelGJet.py 
-.q
-.x scoreCutCompSig.C(false,false)
-.x scoreCutCompSig.C(false,false)
-.x scoreCutCompSig.C(false,true)
-.q
-.x scoreCutCompSig.C(false,true)
-.q
-.x scoreCutCompSig.C(false,true)
-.q
-.x scoreCutCompSig.C(false,true)
-.q
-.q
-TFile *_file0 = TFile::Open("curves/BarrelPhotons_OnlyPF_GGH_0104_SinglePhoton_ROC.root")
+TFile *_file0 = TFile::Open("Photons_OnlyPF_GGH_0113_SinglePhoton_ROC.root")
 .ls
+can_RoC->DrawO
+can_RoC->Draw()
+TFile *_file0 = TFile::Open("curves/Photons_OnlyPF_GGH_0113_SinglePhoton_ROC.root")
 can_RoC->Draw()
 .q
-TFile *_file0 = TFile::Open("curves/EndcapPhotons_OnlyPF_GGH_0104_SinglePhoton_ROC.root")
-can_RoC->Draw()
 .q
-.x findIDMVACutEtaSplit.C(true,false)
-.x findIDMVACutEtaSplit.C(true,false)
-.x findSameCutsEtaSplit.C(true,false)
-/q
-.q
-.x findSameCutsEtaSplit.C(true,false)
-.x findSameCutsEtaSplit.C(true,false)
-.q
-.x findSameCutsEtaSplit.C(true,false)
-.q
-.x findSameCutsEtaSplit.C(true,false)
-.x scoreCutCompDiffModels.C(true,false)
-.x scoreCutCompDiffModels.C(true,false)
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_ScEta_PF.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_Pt_PF.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/ValidationSamples_idMVACut_SinglePhotonCuts_weight_PF.root")
-can->Draw()
-.q
-.x scoreCutCompDiffModels.C(true,false)
-.x scoreCutCompDiffModels.C(true,false)
-.q
-.x scoreCutCompDiffModels.C(true,false)
-.q
-.x allEtaRocComp.C(false)
-.x allEtaRocComp.C(false)
-TFile *_file0 = TFile::Open("../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root")
-TBrowser tb
-.q
-.q
-TFile *_file0 = TFile::Open("../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root")
-TBrowser tb
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(false)
-.q
-/q
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-TFile *_file0 = TFile::Open("curves/BarrelPhotons_HighWeight_OnlyPF_GJets_0105_SinglePhoton_ROC.root")
-.ls
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("curves/BarrelPhotons_HighWeight_OnlyPF_GGH_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.q
-.x allEtaRocComp.C(true)
-.q
-.q
-.x allEtaRocComp.C(false)
-.q
-TFile *_file0 = TFile::Open("curves/BarrelPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(false)
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.x allEtaRocComp.C(true)
-.x allEtaRocComp.C(true)
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(true)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-.x allEtaRocComp.C(false)
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root")
-.ls
-can_RoC->Draw()
-.q.q.q
-TFile *_file0 = TFile::Open("BarrelPhotons_HighWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root")
-.ls
-can_RoC->Draw)_
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_HighWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("EndcapPhotons_HighWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("EndcapPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("EndcapPhotons_HighWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root")
-.ls
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_LowWeightBkg_OnlyPF_GGH_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_LowWeightAll_OnlyPF_GJet_0105_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-.x allEtaRocComp.C(false,Barrel)
-.x allEtaRocComp.C(false,"Barrel")
-.x allEtaRocComp.C(false,"Barrel")
+.x allEtaRocComp.C(false,"")
 .q
 .x allEtaRocComp.C(false,"Barrel")
 .q
 .x allEtaRocComp.C(false,"Endcap")
+.x scoreCutCompGGHandGJetTMP.C(false,false)
 .q
-.x allEtaRocComp.C(false,"Barrel")
-.q
-.x allEtaRocComp.C(false,"Endcap")
-.q
-.q
-.x allEtaRocComp.C(false,"Barrel")
-.q
-.x allEtaRocComp.C(false,"Barrel")
-.q
-.x allEtaRocComp.C(false,"Endcap")
-.q
-.x allEtaRocComp.C(false,"Barrel")
-.q
-.x allEtaRocComp.C(false,"Endcap")
-TFile *_file0 = TFile::Open("EndcapPhotons_HighWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root")
-can_Roc->Draw()
+TFile *_file0 = TFile::Open("curves/Photons_NewVsOldTMP_GGH_0117_SinglePhoton_ROC.root")
+.ls
 can_RoC->Draw()
-.q
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_LowWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_HighWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("BarrelPhotons_LowWeightAll_OnlyPF_GGH_0106_SinglePhoton_ROC.root")
-can_RoC->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root")
-root -l 
-.s
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_hggMass_PF.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM_PF.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0105/CompModels/GenMatchSplit/LowWeight_ValidationSamples_idMVACut_SinglePhotonCuts_ScEta_PF.root")
+TFile *_file0 = TFile::Open("plots/0117/GGHandGJetPromptFake/Endcap_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+.ls
 can->Draw()
 .q
 .q
-.x scoreCutCompGGHandGJet.C(false,false)
-.x scoreCutCompGGHandGJet.C(false,false)
-.x scoreCutCompGGHandGJet.C(false,false)
-.x scoreCutCompGGHandGJet.C(false,false)
-.q
-.x scoreCutCompGGHandGJet.C(false,false)
-.q
-.x scoreCutCompGGHandGJet.C(false,false)
-.q
-.q
-TFile *_file0 = TFile::Open("plots/0107/GGHandGJetPromptFake/LowWeightGJet_GGHandGJet_idMVACut_SinglePhotonCuts_PtOvrM.root")
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+TFile *_file0 = TFile::Open("plots/0117/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+.ls
 can->Draw()
 .q
-.x addCutsOnlyCorrectPairs.C
+can->Draw()
 .q
-.x create2DweightsGJet.cc
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+TFile *_file0 = TFile::Open("plots/0117/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+.q
+TFile *_file0 = TFile::Open("plots/0117/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
+.q
+.q
+.x findSameCutsEtaSplit.C(false,false)
+.x findSameCutsEtaSplit.C(false,false)
+.q
+.x findSameCutsEtaSplit.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Endcap_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Endcap_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_ScEta.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Endcap_NewVsOld_idMVACut_SinglePhotonCuts_ScEta.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Endcap_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+can->Draw()
+.q
+TFile *_file0 = TFile::Open("Endcap_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
+.q
 .x create2DweightsGJet.cc
 .q
 .x add2DweightsGJet.cc
 .q
-.q
-.q
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP(false,false)
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-TFile *_file0 = TFile::Open("plots/0110/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root")
-can->Draw()
+.x MoreVars1DScan.py
 .q
 .x makeSigBkg.C
 .q
 .x makeSigBkg.C
 .q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.x scoreCutCompGGHandGJetTMP.C(false,false)
 .q
-.x allEtaRocComp.C(false,"Barrel")
+.x scoreCutCompGGHandGJetTMP.C(false,false)
 .q
-.x allEtaRocComp.C(false,"Barrel")
-.x allEtaRocComp.C(false,"Barrel")
+TFile *_file0 = TFile::Open("xgbBoost/barrel/Model_MD18_LR0.05_M95PTM15_OnlyPFPairs_UL2017_0113.root")
+TBrowser tb
 .q
-.x allEtaRocComp.C(false,"Barrel")
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+can->Draw()
 .q
-.x allEtaRocComp.C(false,"Barrel")
-q
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+can->Draw()
+./q
 .q
-.x allEtaRocComp.C(false,"Endcap")
+TFile *_file0 = TFile::Open("Barrel_NewVsOld_idMVACut_SinglePhotonCuts_ScEta.root")
+can->Draw()
 .q
-.x allEtaRocComp.C(true,"Barrel")
-q
+ .x scoreCutCompGGHandGJetTMP.C 
 .q
-.x allEtaRocComp.C(true,"Endcap")
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_Pt.root")
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+.q\
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
 .q
-TFile *_file0 = TFile::Open("curves/BarrelPhotons_OnlyPF_GGH_0110_SinglePhoton_ROC.root")
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_ScEta.root")
+can->Draw()
+.a
+.q
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_ScEta.root")
+can->Draw()
+.q
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_ScEta.root")
+can->Draw()
+.q
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_PtOvrM.root")
+can->Draw()
+.q
+.q
+.x scoreCutCompGGHandGJetTMP.C
+ .x scoreCutCompGGHandGJetTMP.C(false,false) 
+.x scoreCutCompGGHandGJetTMP.C
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_IDMVAZoom.root")
+can->Draw()
+.q
+can->Draw()
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_IDMVAZoom.root")
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Barrel_NewVsOld_idMVACut_SinglePhotonCuts_IDMVAZoom.root")
+can->Draw()
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+.x scoreCutCompGGHandGJetTMP.C(false,false)
+.q
+TFile *_file0 = TFile::Open("plots/0119/GGHandGJetPromptFake/Endcap_NewVsOld_idMVACut_SinglePhotonCuts_IDMVAZoom.root")
+can->Draw()
+.q
+.x addCutsOnlyCorrectPairs.C
+.q
+TFile *_file0 = TFile::Open("Model_MD18_LR0.04_M95PTM15_OnlyPFPairs_UL2017_0113.root")
+TBrowser tb
+.q
+.x addCutsGGH.C
+.q
+.x addCutsGGH.C
+.q
+.x barrelValidateGGH1DParScan.py
+.q
+TFile *_file0 = TFile::Open("../rocComps/curves/BarrelPhotons_NewVsOldTMP_GGH_0117_SinglePhoton_ROC.root")
+.q
+TFile *_file0 = TFile::Open("../rocComps/curves/EndcapPhotons_OnlyPF_GJet_0104_SinglePhoton_ROC.root")
 can_RoC->Draw()
 .q
-TFile *_file0 = TFile::Open("ValidationSamples_idMVACut_SinglePhotonCuts_hggMass.root")
-.ls
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root")
-can->Draw()
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.x findSameCutsEtaSplit.C(true,false)
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.x findSameCutsEtaSplit.C(true,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)\
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.Q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root")
-can->Draw()
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-.x scoreCutCompGGHandGJetTMP.C(false,false)
-.q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_Pt.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/Barrel_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root")
-can->Dra()
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/Endcap_ValidationSamples_idMVACut_SinglePhotonCuts_PtOvrM.root")
-can->Draw()
-.q
-TFile *_file0 = TFile::Open("curves/BarrelPhotons_OnlyPF_GGH_0110_Diphoton_ROC.root")
-can_RoC->Dra()
+TFile *_file0 = TFile::Open("../rocComps/curves/BarrelPhotons_OnlyPF_GJet_0104_SinglePhoton_ROC.root")
 can_RoC->Draw()
 .q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_hggMass.root")
-can->Draw()
+TFile *_file0 = TFile::Open("../rocComps/curves/BarrelPhotons_NewVsOldTMP_GGH_0117_SinglePhoton_ROC.root")
+can_RoC->Draw()
 .q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_hggMass.root")
-can->Draw()
+.x barrelValidatedModel1DParScan.py
 .q
-TFile *_file0 = TFile::Open("plots/0111/GGHandGJetPromptFake/ValidationSamples_idMVACut_SinglePhotonCuts_hggMass.root")
-can->Draw()
-TFile *_file0 = TFile::Open("Endcap_ValidationSamples_idMVACut_SinglePhotonCuts_EsEnergyOverRawE.root")
-can->Draw()
-TFile *_file0 = TFile::Open("Endcap_ValidationSamples_idMVACut_SinglePhotonCuts_EsEffSigmaRR.root")
-TFile *_file1 = TFile::Open("Endcap_ValidationSamples_idMVACut_SinglePhotonCuts_EsEffSigmaRR.root")
-.ls
-can->Draw()
-_file1->cd()
-.ls]
-.ls
-can->Draw()
-can->Draw()
-.ls
-can->Show()
-_file1.can->Draw()
-.x fitMassSlidingCuts.C
-.q
-.x fitMassSlidingCuts.C
-.q
-.x fitMassSlidingCuts.C
-.q
-.x fitMassSlidingCuts.C
-TFile *_file0 = TFile::Open("../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root")
+TFile *_file0 = TFile::Open("validationNTuples/MD18_LR02_M95PTM15_OnlyPFPairs_UL2017_Validation_Barrel_0121.root")
 .ls
 TBrowser tb
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-TFile *_file0 = TFile::Open("plots/0105/MassFitCompNoPtReweight.root")
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.Q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+TFile *_file0 = TFile::Open("validationNTuples/MD13_LR04_M95PTM15_OnlyPFPairs_UL2017_Validation_Barrel_0121.root")
 .ls
-c2->Draw()
+TBrowser tb
 .q
-TFile *_file0 = TFile::Open("plots/0105/MassFitCompNoPtReweight.root")
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x findSameCutsEtaSplit.C(true,false)
-.x findSameCutsEtaSplit.C(false,false)
+.x compIDMVAScores.C
 .q
-.x findSameCutsEtaSplit.C(false,false)
+.x compIDMVAScores.C
+.x compIDMVAScores.C
 .q
-.x makeSigBkg.C
+.x compIDMVAScores.C
 .q
-.x makeSigBkg.C
+.x compIDMVAScores.C
 .q
-.x allEtaRocComp.C(false,"Barrel")
+.x compIDMVAScores.C
+.x compIDMVAScores.C
 .q
-TFile *_file0 = TFile::Open("ValidationSamples_idMVACut_SinglePhotonCuts_IDMVA.root")
-can->Draw()
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-.x fitMassSlidingCuts.C
+.x compIDMVAScores.C
 .q
-TFile *_file0 = TFile::Open("../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root")
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+canR->Print("GJetRocCurve_MDSearch_0124.root")
+canP->Print("GJetIDMVAPrompt_MDSearch_0124.root")
+canF->Print("GJetIDMVAF_MDSearch_0124.root")
+.q
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.ls
+!ls
+.!ls -lthr 
+canP->Print("GJetIDMVAP_MDSearch_Endcap_0124.root":)
+canP->Print("GJetIDMVAP_MDSearch_Endcap_0124.root")
+canF->Print("GJetIDMVAF_MDSearch_Endcap_0124.root")
+canR->Print("GJetRoC_MDSearch_Endcap_0124.root")
+.q
+.x compIDMVAScores.C
+canR->Print("GJetRoC_LRSearch_Endcap_0124.root")
+canF->Print("GJetIDMVAF_LRSearch_Endcap_0124.root")
+canP->Print("GJetIDMVAP_LRSearch_Endcap_0124.root")
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+canR->Print("GJetRocCurve_LRSearch_Barrel_0124.root")
+canF->Print("GJetIDMVAF_LRSearch_Barrel_0124.root")
+canP->Print("GJetIDMVAP_LRSearch_Barrel_0124.root")
+.q
+TFile *_file0 = TFile::Open("outROC/GJetRocCurve_MDSearch_Barrel_0124.root")
+can->Draww()
+.ls
+canR->Draw()
+.q
+TFile *_file0 = TFile::Open("idMVAPlots/GJetIDMVAP_LRSearch_Barrel_0124.root")
+canP->Draw()
+.q
+TFile *_file0 = TFile::Open("idMVAPlots/GJetIDMVAF_LRSearch_Barrel_0124.root")
+canF->Draw()
+.q
+TFile *_file0 = TFile::Open("idMVAPlots/GJetIDMVAF_LRSearch_Barrel_0124.root")
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+canR->Print("GJetRocCurve_LRSearch_Barrel_0124.root")
+canF->Print("GJetIDMVAF_LRSearch_Barrel_0124.root")
+canP->Print("GJetIDMVAP_LRSearch_Barrel_0124.root")
+.q
+.x compIDMVAScores.C
+canR->Print("GJetRocCurve_LRSearch_Endcap_0124.root")
+canF->Print("GJetIDMVAF_LRSearch_Endcap_0124.root")
+canP->Print("GJetIDMVAP_LRSearch_Endcap_0124.root")
+.q
+.x compIDMVAScores.C
+canP->Print("GJetIDMVAP_MDSearch_Endcap_0124.root")
+canF->Print("GJetIDMVAF_MDSearch_Endcap_0124.root")
+canR->Print("GJetRocCurve_MDSearch_Endcap_0124.root")
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+canR->Print("GJetRocCurve_MDSearch_Barrel_0124.root")
+canF->Print("GJetIDMVAF_MDSearch_Barrel_0124.root")
+canP->Print("GJetIDMVAP_MDSearch_Barrel_0124.root")
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.q
+TFile *_file0 = TFile::Open("idMVAPlots/GJetIDMVAP_MDSearch_Barrel_0124.root")
+.ls
+canP->Draw()
+.q
+.x compIDMVAScores.C
+canP->Print("GJetIDMVAP_MDSearch_Barrel_0126.root")
+canF->Print("GJetIDMVAF_MDSearch_Barrel_0126.root")
+canR->Print("GJetROC_MDSearch_Barrel_0126.root")
+.q
+TFile *_file0 = TFile::Open("GJetIDMVAP_MDSearch_Barrel_0126.root")
+canR->Draw()
 .ls
 .q
-.x fitMassSlidingCuts.C
+TFile *_file0 = TFile::Open("GJetIDMVAP_MDSearch_Barrel_0126.root")
+canP->Draw()
 .q
-.x fitMassSlidingCuts.C
+TFile *_file0 = TFile::Open("idMVAPlots/GJetIDMVAF_MDSearch_Barrel_0126.root")
+.ls
 .q
-.x fitMassSlidingCuts.C
+TFile *_file0 = TFile::Open("idMVAPlots/GJetIDMVAP_MDSearch_Barrel_0126.root")
+.ls
+canP->Draw()
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.!ls -lthr 
+.!ls -lthr idMVAPlots
+canP->Print("GJetIDMVAP_MDSearch_Barrel_0127.root"
+.q
+.x compIDMVAScores.C
+canP->Print("GJetIDMVAP_MDSearch_Barrel_0127.root")
+canF->Print("GJetIDMVAF_MDSearch_Barrel_0127.root")
+canR->Print("GJetROC_MDSearch_Barrel_0127.root")
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+canR->Print("GJetROC_MDSearch_Endcap_0127.root")
+canF->Print("GJetIDMVAF_MDSearch_Endcap_0127.root")
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
+.x compIDMVAScores.C
+.q
+.x compIDMVAScores.C
 .q

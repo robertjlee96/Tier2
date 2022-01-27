@@ -44,7 +44,7 @@ void create2DweightsGJet(){
   hPt_vs_Eta_EE_Bkg->GetXaxis()->SetTitle("Pt_{#gamma} (GeV)");
   hPt_vs_Eta_EE_Bkg->GetYaxis()->SetTitle("#eta_{SC}");
 
-  TFile *File = TFile::Open("../NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs_Train_Proc.root");
+  TFile *File = TFile::Open("../NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs_Train.root");
 //TDirectory *dir_Photon = (TDirectory*)File->Get("photonViewDumper/trees");
     // TTree *t_PromtPhotons = (TTree*)dir_Photon->Get("promptPhotons");
     //TTree *t_FakePhotons = (TTree*)dir_Photon->Get("fakePhotons");

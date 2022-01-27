@@ -33,11 +33,11 @@ void findSameCutsEtaSplit(bool etaSplit, bool diphotonCuts){
     
     int nBins = 20000000;
 
-    string fileNameIDMVA1 = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
+    string fileNameIDMVA1 = "../NTuples/GGH_And_GJets_M95PTM25_Old0916_0113.root";
     TFile *f1 = new TFile(fileNameIDMVA1.c_str());
     TTree *tGJet1 = (TTree*)f1->Get("GJets");
     
-    string fileNameIDMVA2 = "../NTuples/GGH_And_GJets_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root";
+    string fileNameIDMVA2 = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
     TFile *f2 = new TFile(fileNameIDMVA2.c_str());
     TTree *tGJet2 = (TTree*)f2->Get("GJets");
     
@@ -70,7 +70,7 @@ void findSameCutsEtaSplit(bool etaSplit, bool diphotonCuts){
         etaCutsSub[0] = "";
     }
    
-    string outNameGen = "plots/idMVACutLocation/1215";
+    string outNameGen = "plots/0117/idMVACutLocation/";
     if(diphotonCuts == true)outNameGen += "_DiphotonCuts";
     if(diphotonCuts == false)outNameGen += "_SinglePhotonCuts";
     
@@ -152,7 +152,7 @@ void findSameCutsEtaSplit(bool etaSplit, bool diphotonCuts){
         snprintf(buff3, sizeof(buff3), "(%0.2f", 100*propIDMVA1);
         string nIDMVA1Str = buff2;
         string propIDMVA1Str = buff3;
-        string labelCut = "GJet Fake IDMVA1 > -0.99" + (nIDMVA1Str + ")") + (propIDMVA1Str + "%)");
+        string labelCut = "GJet Prompt IDMVA1 > -0.99" + (nIDMVA1Str + ")") + (propIDMVA1Str + "%)");
         legend->AddEntry(hIDMVA1,labelCut.c_str(),"pl");
 
         int nCuts = nBins;
@@ -171,8 +171,8 @@ void findSameCutsEtaSplit(bool etaSplit, bool diphotonCuts){
             double tmpIDMVAInt = hIDMVA2->Integral(mvaBin,mvaMaxBin);
             
             propIDMVACut = tmpIDMVAInt/totalInt;
-            //if(propIDMVACut <= propIDMVA1)break;
-            if(propIDMVACut <= 0.75)break;
+            if(propIDMVACut <= propIDMVA1)break;
+            //if(propIDMVACut <= 0.75)break;
         }
         cout<<"Eta Label = "<<etaLabels[e]<<endl;
         cout<<"PropIDMVA1 < -0.99 = "<<propIDMVA1<<endl;

@@ -78,7 +78,7 @@ void addCutsOnlyCorrectPairs(){
     TTreeReaderValue<Float_t> subHadronicOverEm(myReader, "subHadronicOverEm");
     TTreeReaderValue<Float_t> rhoIn(myReader, "rho");
     
-    TFile* fileOut = TFile::Open("NTuples/SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs.root","RECREATE");
+    TFile* fileOut = TFile::Open("NTuples/SinglePhoton_GJet_M95PTM15_DPT075_OnlyPromptFakePairs_0120_Validation.root","RECREATE");
     string treeNames[4] = {"PromptLead","PromptSub","FakeLead","FakeSub"};
     string treeStrs[2] = {"promptPhotons","fakePhotons"};
     
@@ -186,7 +186,8 @@ void addCutsOnlyCorrectPairs(){
     treeOutF2 ->Branch("rho",&rhoF2 ,"rho/F");
         
     while (myReader.Next()){
-        if(((int)*eventIn)%2 != 0 && ((*leadGenMatchType == 1 && *subGenMatchType != 1)||(*leadGenMatchType != 1 && *subGenMatchType == 1) )  ){
+        //ODD FOR TRAINING EVEN FOR VALIDATION
+        if(((int)*eventIn)%2 == 0 && ((*leadGenMatchType == 1 && *subGenMatchType != 1)||(*leadGenMatchType != 1 && *subGenMatchType == 1) )  ){
             if (*hggMassIn > 95.0 && *leadGenMatchType == 1.0 && *leadPt > 17.0 && *leadPt/(*hggMassIn) > 0.15 && abs(*leadGenPt-*leadPt)/(*leadPt) < 0.075){
                 hggMassP1 = *hggMassIn;
                 eventP1 = *eventIn;
@@ -262,7 +263,7 @@ void addCutsOnlyCorrectPairs(){
                 rhoF1 = *rhoIn;
                 treeOutF1->Fill();
             }
-            if (*hggMassIn > 95.0 && *subGenMatchType != 1.0 && *subPt > 17.0 && *subPt/(*hggMassIn) > 0.15SinglePhoton_GJet_M95PTM15_DPT075_0109_OnlyPromptFakePairs.root){
+            if (*hggMassIn > 95.0 && *subGenMatchType != 1.0 && *subPt > 17.0 && *subPt/(*hggMassIn) > 0.15){
                 hggMassF2 = *hggMassIn;
                 eventF2 = *eventIn;
                 genMatchTypeF2 = *subGenMatchType;

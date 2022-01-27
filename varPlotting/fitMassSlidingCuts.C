@@ -31,12 +31,12 @@ void fitMassSlidingCuts(){
     gStyle->SetOptStat(0);
     gStyle->SetTitle(0);
 
-    string fileName1 = "../NTuples/GGH_And_Diphoton_M95PTM25_HovrE_DPT075_1129.root";
+    string fileName1 = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
     TFile *f1 = new TFile(fileName1.c_str());
-    //TTree *tGJet1 = (TTree*)f1->Get("GJets");
-    TTree *tGJet1 = (TTree*)f1->Get("diphotons");
+    TTree *tGJet1 = (TTree*)f1->Get("GJets");
+    //TTree *tGJet1 = (TTree*)f1->Get("diphotons");
     
-    string fileName2 = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HHovrE_Test25Percent_FixSplit_1222.root";
+    string fileName2 = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root";
     TFile *f2 = new TFile(fileName2.c_str());
     TTree *tGJet2 = (TTree*)f2->Get("GJets");
     
@@ -48,7 +48,7 @@ void fitMassSlidingCuts(){
     string gjfLabelIDMVA1 = "W/ Old idMVA";
     string gjfLabelIDMVA2 = "W/ New idMVA";
     
-    string outStr ="plots/0113/MassFitComp_Diphoton_";
+    string outStr ="plots/0114/MassFitComp_GJet_";
     string out1 = "WithPtReweight.root";
     string out2 = "NoPtReweight.root";
     
@@ -62,11 +62,11 @@ void fitMassSlidingCuts(){
     string kinCutLeadLoose = " && leadPt > 17 && leadPt/hggMass > 0.15";
     string kinCutSubLoose = " && subPt > 17 && subPt/hggMass > 0.15";
     
-    //string cutLeadGen = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutLoose + kinCutLeadLoose;
-    //string cutSubGen = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + kinCutSubLoose;
+    string cutLeadGen = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutLoose + kinCutLeadLoose;
+    string cutSubGen = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + kinCutSubLoose;
     
-    string cutLeadGen = "(leadGenMatchType == 1" + massCutLoose + kinCutLeadLoose;
-    string cutSubGen = "(subGenMatchType == 1" + massCutLoose + kinCutSubLoose;
+    //string cutLeadGen = "(leadGenMatchType == 1" + massCutLoose + kinCutLeadLoose;
+    //string cutSubGen = "(subGenMatchType == 1" + massCutLoose + kinCutSubLoose;
     
     TCanvas *c1 = new TCanvas ("c1","c1",10,10,1600,900);
     TCanvas *c2 = new TCanvas ("c2","c2",10,10,1600,900);
@@ -77,7 +77,7 @@ void fitMassSlidingCuts(){
     string legList[2] = {gjfLabelIDMVA1,gjfLabelIDMVA2};
     string outList[2] = {outStr + out1, outStr + out2};
     
-    for(int i = 0; i < 1; i++)
+    for(int i = 0; i < 2; i++)
     {
         TH1F *h[7];
         TH1F *hSub[7];
@@ -88,14 +88,14 @@ void fitMassSlidingCuts(){
         string fitNames[7] = {"fit1","fit2","fit3","fit4","fit5","fit6","fit7"};
 
         cList[i]->cd();
-        cList[i]->SetLogy();
+        //cList[i]->SetLogy();
   
         THStack *hStack = new THStack("hStack","GJet Fake Mass;hggMass");
         TLegend *legend = new TLegend(0.6,0.6,0.9,0.9,"","brNDC");
         for (int j = 0; j < 7; j++)
         {
-            h[j] = new TH1F (hNames[j].c_str(),"",480,80,200);
-            hSub[j] = new TH1F (hNamesSub[j].c_str(),"",480,80,200);
+            h[j] = new TH1F (hNames[j].c_str(),"",48,95,180);
+            hSub[j] = new TH1F (hNamesSub[j].c_str(),"",48,95,180);
             
             string cutStringLead = cutLeadGen + idMVACutsLead[j] + ")*weight";
             string cutStringSub = cutSubGen + idMVACutsSub[j] + ")*weight";

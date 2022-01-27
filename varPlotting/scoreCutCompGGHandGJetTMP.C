@@ -31,12 +31,12 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
     gStyle->SetOptStat(0);
     gStyle->SetTitle(0);
 
-    string fileName1 = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
+    string fileName1 = "../NTuples/GGH_And_GJets_M95PTM25_Old0916_0113.root";
     TFile *f1 = new TFile(fileName1.c_str());
     TTree *tGJet1 = (TTree*)f1->Get("GJets");
     TTree *tGGH1 = (TTree*)f1->Get("ggh_125");
     
-    string fileName2 = "../NTuples/GGH_And_GJets_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root";
+    string fileName2 = "../NTuples/GGH_And_GJets_M95PTM25_NoDPT_0113.root";
     TFile *f2 = new TFile(fileName2.c_str());
     TTree *tGJet2 = (TTree*)f2->Get("GJets");
     TTree *tGGH2 = (TTree*)f2->Get("ggh_125");
@@ -44,17 +44,36 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
     string gjpLabelUncut = "GJet Prompt";
     string gjpLabelPresel = "GJet Prompt Presel";
     string gjpLabelIDMVA1 = "GJet Prompt W/ Old idMVA > -0.99";
-    string gjpLabelIDMVA2 = "GJet Prompt W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
+    string gjpLabelIDMVA2 = "GJet Prompt W/ New idMVA > -0.997";
+    //string gjpLabelIDMVA2 = "GJet Prompt W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
     string gjfLabelUncut = "GJet Fake";
     string gjfLabelPresel = "GJet Fake Presel";
     string gjfLabelIDMVA1 = "GJet Fake W/ Old idMVA > -0.99";
-    string gjfLabelIDMVA2 = "GJet Fake W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
+    string gjfLabelIDMVA2 = "GJet Fake W/ New idMVA > -0.997";
+    //string gjfLabelIDMVA2 = "GJet Fake W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
     string gghLabelUncut = "GGH";
     string gghLabelPresel = "GGH Presel";
     string gghLabelIDMVA1 = "GGH W/ Old idMVA > -0.99";
-    string gghLabelIDMVA2 = "GGH W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
+    string gghLabelIDMVA2 = "GGH W/ New idMVA > -0.997";
+    //string gghLabelIDMVA2 = "GGH W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
+    
+//    string gjpLabelUncut = "GJet Prompt";
+//    string gjpLabelPresel = "GJet Prompt Presel";
+//    string gjpLabelIDMVA1 = "GJet Prompt PtM > 0.25 idMVA > -0.99";
+//    string gjpLabelIDMVA2 = "GJet Prompt PtM > 0.15 idMVA > -0.99";
+//    //string gjpLabelIDMVA2 = "GJet Prompt W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
+//    string gjfLabelUncut = "GJet Fake";
+//    string gjfLabelPresel = "GJet Fake Presel";
+//    string gjfLabelIDMVA1 = "GJet Fake PtM > 0.25 idMVA > -0.99";
+//    string gjfLabelIDMVA2 = "GJet Fake PtM > 0.15 idMVA > -0.99";
+//    //string gjfLabelIDMVA2 = "GJet Fake W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
+//    string gghLabelUncut = "GGH";
+//    string gghLabelPresel = "GGH Presel";
+//    string gghLabelIDMVA1 = "GGH PtM > 0.25 idMVA > -0.99";
+//    string gghLabelIDMVA2 = "GGH PtM > 0.15 idMVA > -0.99";
+//    //string gghLabelIDMVA2 = "GGH W/ New idMVABarrel > -0.99581 & idMVAEndcap > -0.97466";
 
-    string dirStr ="plots/0111/GGHandGJetPromptFake/";
+    string dirStr ="plots/0119/GGHandGJetPromptFake/";
     int nGenMatch;
     string genMatchCuts[3];
     string genMatchLabels[3];
@@ -89,12 +108,18 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
     
     
     if(genMatchSplit == true) dirStr += "GenMatchSplit/";
-    string outNameGen = dirStr + "Endcap_ValidationSamples_idMVACut";
+    string outNameGen = dirStr + "Endcap_NewVsOld_idMVACut";
     if(diphotonCuts == true)outNameGen += "_DiphotonCuts";
     if(diphotonCuts == false)outNameGen += "_SinglePhotonCuts";
     
     string etaCutLead = " && abs(leadScEta) > 1.556";
     string etaCutSub = " && abs(subScEta) > 1.556";
+    
+    //string etaCutLead = " && abs(leadScEta) < 1.4442";
+    //string etaCutSub = " && abs(subScEta) < 1.4442";
+    
+    //string etaCutLead = " ";
+    //string etaCutSub = " ";
     
     string massCutTight = " && hggMass > 121 && hggMass < 129" + etaCutLead + etaCutSub;
     string massCutLoose = " && hggMass > 95" + etaCutLead + etaCutSub;
@@ -108,8 +133,11 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
     string idMVACutLead1 = "&& leadIDMVA > -0.99";
     string idMVACutSub1 = "&& subIDMVA > -0.99";
     
-    string idMVACutLead2 = " && !(abs(leadScEta) < 1.4442 && leadIDMVA < -0.99581) && !(abs(leadScEta) > 1.556 && leadIDMVA < -0.97466)";
-    string idMVACutSub2 = " && !(abs(subScEta) < 1.4442 && subIDMVA < -0.99581) && !(abs(subScEta) > 1.556 && subIDMVA < -0.97466)";
+    string idMVACutLead2 = "&& leadIDMVA > -0.997";
+    string idMVACutSub2 = "&& subIDMVA > -0.997";
+    
+   // string idMVACutLead2 = " && !(abs(leadScEta) < 1.4442 && leadIDMVA < -0.99581) && !(abs(leadScEta) > 1.556 && leadIDMVA < -0.97466)";
+    //string idMVACutSub2 = " && !(abs(subScEta) < 1.4442 && subIDMVA < -0.99581) && !(abs(subScEta) > 1.556 && subIDMVA < -0.97466)";
     
     string preselLead = " && leadR9 > 0.5 && leadHadronicOverEm < 0.08 && !(abs(leadScEta) < 1.5 && leadR9 < 0.85 && (leadSigmaIetaIeta > 0.015 || leadPfPhoIso03 > 4.0 || leadTrkSumPtHollowConeDR03 > 6.0)) && !(abs(leadScEta) > 1.5 && leadR9 < 0.9 && (leadSigmaIetaIeta > 0.035 || leadPfPhoIso03 > 4.0 || leadTrkSumPtHollowConeDR03 > 6.0))";
     string preselSub =  " && subR9 > 0.5 && subHadronicOverEm < 0.08 && !(abs(subScEta) < 1.5 && subR9 < 0.85 && (subSigmaIetaIeta > 0.015 || subPfPhoIso03 > 4.0 || subTrkSumPtHollowConeDR03 > 6.0)) && !(abs(subScEta) > 1.5 && subR9 < 0.9 && (subSigmaIetaIeta > 0.035 || subPfPhoIso03 > 4.0 || subTrkSumPtHollowConeDR03 > 6.0))";
@@ -134,28 +162,54 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
             cutStringLeadLoose = genMatchCuts[e] + kinCutLeadLoose + ")*weight";
             cutStringSubLoose = genMatchCuts[e] + kinCutSubLoose + ")*weight";
             
-            cutStringLeadTight = genMatchCuts[e] + kinCutLeadLoose + preselLead + ")*weight";
-            cutStringSubTight =  genMatchCuts[e] + kinCutSubLoose + preselSub + ")*weight";
+            cutStringLeadTight = genMatchCuts[e] + kinCutLeadTight + preselLead + ")*weight";
+            cutStringSubTight =  genMatchCuts[e] + kinCutSubTight + preselSub + ")*weight";
             
-            cutStringLeadIDMVA1 = genMatchCuts[e] + kinCutLeadLoose + idMVACutLead1 + ")*weight";
-            cutStringSubIDMVA1 = genMatchCuts[e] + kinCutSubLoose + idMVACutSub1 + ")*weight";
+            cutStringLeadIDMVA1 = genMatchCuts[e] + kinCutLeadLoose;
+            cutStringSubIDMVA1 = genMatchCuts[e] + kinCutSubLoose;
             
-            cutStringLeadIDMVA2 = genMatchCuts[e] + kinCutLeadLoose + idMVACutLead2 + ")*weight";
-            cutStringSubIDMVA2 = genMatchCuts[e] + kinCutSubLoose + idMVACutSub2 + ")*weight";
+            cutStringLeadIDMVA2 = genMatchCuts[e] + kinCutLeadLoose;
+            cutStringSubIDMVA2 = genMatchCuts[e] + kinCutSubLoose;
         }
         
-        int nVars = 21;
-        string varNames[21] = {"Pt","Pt/hggMass","hggMass","SigmaIetaIeta","IDMVA","weight","SCRawE","R9","EtaWidth","PhiWidth","CovIEtaIPhi","S4","PhoIso03","ChgIsoWrtChosenVtx","ChgIsoWrtWorstVtx","ScEta","rho","HadTowOverEm","HadronicOverEm","EsEffSigmaRR","EsEnergyOverRawE"};
-        double limsLow[21] = {0.0,0.0,80.0,0.0,-1.1,-1.0,0.0,0.0,0.0,0.0,-0.002,0.0,0.0,0.0,0.0,-3.0,0.0,0.0,0.0,0.0,0.0};
-        double limsHigh[21] = {200,1.3,180,0.1,1.1,5.0,650,1.1,0.2,0.2,0.002,1.0,25.0,25.0,25.0,3.0,60.0,0.4,1.0,8.0,0.2};
-        int nBins[21] = {400,520,400,400,440,500,650,440,400,400,400,400,500,500,500,400,600,400,400,400,400};
+        int nVars = 22;
+        string varNames[22] = {"Pt","Pt/hggMass","ScEta","hggMass","SigmaIetaIeta","IDMVA","IDMVAZoom","weight","SCRawE","R9","EtaWidth","PhiWidth","CovIEtaIPhi","S4","PhoIso03","ChgIsoWrtChosenVtx","ChgIsoWrtWorstVtx","rho","HadTowOverEm","HadronicOverEm","EsEffSigmaRR","EsEnergyOverRawE"};
+        double limsLow[22] = {0.0,0.0,-3.0,80.0,0.0,-1.1,-1.0,-1.0,0.0,0.0,0.0,0.0,-0.002,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+        double limsHigh[22] = {200,1.3,3.0,180,0.1,1.1,-0.95,5.0,650,1.1,0.2,0.2,0.002,1.0,25.0,25.0,25.0,60.0,0.4,1.0,8.0,0.2};
+        int nBins[22] = {400,520,400,400,400,440,400,500,650,440,400,400,400,400,500,500,500,600,400,400,400,400};
         int nEventsLoose, nEventsTight;
         
         TCanvas *can = new TCanvas ("can","can",10,10,1600,900);
         
-        for(int i = 0; i < nVars; i++){
-        //for(int i = 5; i < 6; i++){
+        //for(int i = 0; i < nVars; i++){
+        for(int i = 6; i < 7; i++){
+            string cutStringLeadIDMVA1Inside;
+            string cutStringSubIDMVA1Inside;
+            string cutStringLeadIDMVA2Inside;
+            string cutStringSubIDMVA2Inside;
+            
         //for(int i = 16; i < 20; i++){
+            string insideIDMVACutLead1;
+            string insideIDMVACutSub1;
+            string insideIDMVACutLead2;
+            string insideIDMVACutSub2;
+            if(varNames[i] == "IDMVA" || varNames[i] == "IDMVAZoom"){
+                insideIDMVACutLead1 = ")*weight";
+                insideIDMVACutSub1 = ")*weight";
+                insideIDMVACutLead2 = ")*weight";
+                insideIDMVACutSub2 = ")*weight";
+            }
+            else{
+                insideIDMVACutLead1 = idMVACutLead1 + ")*weight";
+                insideIDMVACutSub1 = idMVACutSub1 + ")*weight";
+                insideIDMVACutLead2 = idMVACutLead2 + ")*weight";
+                insideIDMVACutSub2 = idMVACutSub2 + ")*weight";
+            }
+            cutStringLeadIDMVA1Inside = cutStringLeadIDMVA1 + insideIDMVACutLead1;
+            cutStringSubIDMVA1Inside = cutStringSubIDMVA2 + insideIDMVACutSub1;
+            cutStringLeadIDMVA2Inside = cutStringLeadIDMVA2 + insideIDMVACutLead2;
+            cutStringSubIDMVA2Inside = cutStringSubIDMVA2 + insideIDMVACutSub2;
+           
             TLegend *legend;
             if (varNames[i] == "IDMVA") legend = new TLegend(0.35,0.6,0.65,0.9,"","brNDC");
             else legend = new TLegend(0.6,0.6,0.9,0.9,"","brNDC");
@@ -176,7 +230,10 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
                 leadVarStr = varNames[i];
                 subVarStr = varNames[i];
             }
-        
+            if(varNames[i] == "IDMVAZoom"){
+                leadVarStr = "leadIDMVA";
+                subVarStr = "subIDMVA";
+            }
             
             TH1F *h[12];
             TH1F *hSub[12];
@@ -196,12 +253,12 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
                     cutStringSub = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutLoose + cutStringSubTight;
                 }
                 if (j == 2){
-                    cutStringLead = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutLoose + cutStringLeadIDMVA1;
-                    cutStringSub = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutLoose + cutStringSubIDMVA1;
+                    cutStringLead = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutLoose + cutStringLeadIDMVA1Inside;
+                    cutStringSub = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutLoose + cutStringSubIDMVA1Inside;
                 }
                 if (j == 3){
-                    cutStringLead = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutLoose + cutStringLeadIDMVA2;
-                    cutStringSub = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutLoose + cutStringSubIDMVA2;
+                    cutStringLead = "(leadGenMatchType == 1 && subGenMatchType != 1" + massCutLoose + cutStringLeadIDMVA2Inside;
+                    cutStringSub = "(subGenMatchType == 1 && leadGenMatchType != 1" + massCutLoose + cutStringSubIDMVA2Inside;
                 }
                 
                 if (j == 4){
@@ -213,12 +270,12 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
                     cutStringSub = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + cutStringSubTight;
                 }
                 if (j == 6){
-                    cutStringLead = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutLoose + cutStringLeadIDMVA1;
-                    cutStringSub = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + cutStringSubIDMVA1;
+                    cutStringLead = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutLoose + cutStringLeadIDMVA1Inside;
+                    cutStringSub = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + cutStringSubIDMVA1Inside;
                 }
                 if (j == 7){
-                    cutStringLead = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutLoose + cutStringLeadIDMVA2;
-                    cutStringSub = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + cutStringSubIDMVA2;
+                    cutStringLead = "(leadGenMatchType != 1 && subGenMatchType == 1" + massCutLoose + cutStringLeadIDMVA2Inside;
+                    cutStringSub = "(subGenMatchType != 1 && leadGenMatchType == 1" + massCutLoose + cutStringSubIDMVA2Inside;
                 }
                 
                 if (j == 8){
@@ -230,12 +287,12 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
                     cutStringSub = "(subGenMatchType == 1" + massCutTight + cutStringSubTight + "*400";
                 }
                 if (j == 10){
-                    cutStringLead = "(leadGenMatchType == 1 " + massCutTight + cutStringLeadIDMVA1 + "*400";
-                    cutStringSub = "(subGenMatchType == 1" + massCutTight + cutStringSubIDMVA1 + "*400";
+                    cutStringLead = "(leadGenMatchType == 1 " + massCutTight + cutStringLeadIDMVA1Inside + "*400";
+                    cutStringSub = "(subGenMatchType == 1" + massCutTight + cutStringSubIDMVA1Inside + "*400";
                 }
                 if (j == 11){
-                    cutStringLead = "(leadGenMatchType == 1 " + massCutTight + cutStringLeadIDMVA2 + "*400";
-                    cutStringSub = "(subGenMatchType == 1" + massCutTight + cutStringSubIDMVA2 + "*400";
+                    cutStringLead = "(leadGenMatchType == 1 " + massCutTight + cutStringLeadIDMVA2Inside + "*400";
+                    cutStringSub = "(subGenMatchType == 1" + massCutTight + cutStringSubIDMVA2Inside + "*400";
                 }
                
                 h[j] = new TH1F (hNames[j].c_str(),"",nBins[i],limsLow[i],limsHigh[i]);
@@ -282,7 +339,7 @@ void scoreCutCompGGHandGJetTMP(bool genMatchSplit, bool diphotonCuts){
             hStack->Draw("nostackhist");
             legend->Draw("same");
             can->SetGrid();
-            if (varNames[i] == "IDMVA" || varNames[i] == "ChgIsoWrtChosenVtx" || varNames[i] == "HadTowOverEm" || varNames[i] == "HadronicOverEm" || varNames[i] == "EsEffSigmaRR" || varNames[i] == "EsEnergyOverRawE") can->SetLogy(1);
+            if (varNames[i] == "IDMVA" || varNames[i] == "IDMVAZoom" || varNames[i] == "ChgIsoWrtChosenVtx" || varNames[i] == "HadTowOverEm" || varNames[i] == "HadronicOverEm" || varNames[i] == "EsEffSigmaRR" || varNames[i] == "EsEnergyOverRawE") can->SetLogy(1);
             else can->SetLogy(0);
             
             string outName;

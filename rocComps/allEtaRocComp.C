@@ -32,24 +32,26 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     gStyle->SetTitle(0);
     string fileNames[10];
     
-    int nFiles = 4;
+    int nFiles = 3;
     
-    fileNames[0] = "../NTuples/GGH_And_GJet_M95PTM25_HovrE_DPT075_1118.root";
-    fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_OldModel0929_NoPtReweighting_0112.root";
-    fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_NoPtReweight_0110.root";
-    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root";
+    fileNames[0] = "../NTuples/GGH_And_GJets_M95PTM25_Old0916_0113.root";
+    fileNames[1] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
+    fileNames[2] = "../NTuples/GGH_And_GJets_M95PTM15_DPT075_HovrE_OnlyPFPairs_0110.root";
+    fileNames[3] = "../NTuples/GGH_And_GJets_M95PTM25_DPT075_HovrE_OnlyPFPairs_1223.root";
     
     string sigStr = "ggh_125";
     //string sigStr = "GJets";
     string bkgStr = "GJets";
     
     string genLabels[10];
-    genLabels[0] = " || TRAIN:M95, PTM25, DPT075 , H/E, Old Best";
-    genLabels[1] = " || TRAIN:M95, PTM25, DPT075 , H/E, Old No Pt Reweight ";
-    genLabels[2] = " || TRAIN:M95, PTM25, DPT075 , H/E, 75% Train, 1 Prompt 1 Fake, No Pt Reweight";
-    genLabels[3] = " || TRAIN:M95, PTM15, DPT075 , H/E, 75% Train, 1 Prompt 1 Fake";
+    genLabels[0] = " || TRAIN:M95, PTM25, Old";
+    genLabels[1] = " || TRAIN:M95, PTM25, DPT075, 1 Prompt 1 Fake, New";
+    genLabels[2] = " || TRAIN:M95, PTM15, DPT075, 1 Prompt 1 Fake, New";
+    //genLabels[1] = " || TRAIN:M95, PTM25, DPT075, No Pt Reweight, Old ";
+    //genLabels[2] = " || TRAIN:M95, PTM25, DPT075, 1 Prompt 1 Fake, No Pt Reweight, New";
+    genLabels[3] = " || TRAIN:M95, PTM25, DPT075, 1 Prompt 1 Fake, New";
     
-    string mvaOut = "curves/"+ etaRegion + "Photons_OnlyPF_GGH_0110";
+    string mvaOut = "curves/"+ etaRegion + "Photons_NewVsOldTMP_GGH_0117";
     if(diphotonCuts == true) mvaOut += "_Diphoton";
     if(diphotonCuts == false) mvaOut += "_SinglePhoton";
     
@@ -137,6 +139,7 @@ void allEtaRocComp(bool diphotonCuts, string etaRegion){
     
     int nCuts = 320*100; //For development, faster but still pretty close to final (Change in 5th decimal place)
     for(int i = 0; i < nFiles; i++){
+    //for(int i = 0; i < 3; i++){
         cout << "file # " << i << endl;
         
         TFile *fIn = new TFile(fileNames[i].c_str());
